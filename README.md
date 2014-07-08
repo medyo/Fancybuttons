@@ -2,7 +2,7 @@
 
 ![FancyButtons Android](https://raw.github.com/medyo/fancybuttons/master/screenshots/fancy.png)![FancyButtons Android](/screenshots/fancy2.png)
 
-### I always found some difficulties to make great Android buttons, since i need to override everything or make lot of drawables files to handle focus, pressed and normal state. For that reason, i made Fancy Buttons, to make this task much easier.
+#### I always found some difficulties to make great Android buttons, since i need to override everything or make lot of drawables files to handle focus, pressed and normal state. For that reason, i made Fancy Buttons, to make this task much easier.
 
 ## Overview
 **FancyButtons**, helps you to easily create fancy buttons without the need of drawable files.
@@ -97,7 +97,7 @@
     facebookLoginBtn.setIconPosition(FancyButton.POSITION_LEFT);
     acebookLoginBtn.setFontIconSize(30);
 	
-See the [example project](http://google.com) for more samples	
+See the [example project](https://github.com/medyo/fancybuttons/tree/master/samples/src/main/java/mehdi/sakout/fancybuttons/samples) for more samples	
 
 ### Bonus
 
