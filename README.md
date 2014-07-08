@@ -103,7 +103,7 @@ See the [example project](https://github.com/medyo/fancybuttons/tree/master/samp
 
 Fancybuttons is delivered with :  
 
-* 1 font : **Helvetica Neue**
+* 1 font : **RobotoRegular**
 * 1 icon Font : **FontAwsome** ( cheatsheet http://fortawesome.github.io/Font-Awesome/cheatsheet/)
 
 - - - -

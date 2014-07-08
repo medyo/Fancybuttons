@@ -66,7 +66,7 @@ public class FancyButton  extends LinearLayout{
     //private static final ArrayList<String> mDefaultIconFonts = new ArrayList<String>(Arrays.asList("fontawesome-webfont.ttf"));
 
     private String mDefaultIconFont = "fontawesome.ttf";
-    private String mDefaultTextFont = "helveticaneue.ttf";
+    private String mDefaultTextFont = "robotoregular.ttf";
 
     private ImageView mIconView;
     private  TextView mFontIconView;
