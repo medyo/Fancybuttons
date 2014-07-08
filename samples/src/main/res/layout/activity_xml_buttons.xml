@@ -1,0 +1,437 @@
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="mehdi.sakout.fancybuttons.MainActivity$PlaceholderFragment" >
+
+    <LinearLayout
+        android:id="@+id/section1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/section_facebook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#3b5998"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="20dp" >
+
+            <mehdi.sakout.fancybuttons.FancyButton
+                android:id="@+id/btn_facebook_like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                fancy:borderColor="#FFFFFF"
+                fancy:borderWidth="1dp"
+                fancy:defaultColor="#3b5998"
+                fancy:focusColor="#5577bd"
+                fancy:fontIconResource="@string/icon_like"
+                fancy:fontIconSize="10sp"
+                fancy:iconPosition="right"
+                fancy:radius="30dp"
+                fancy:text="Like my facebook page"
+                fancy:textColor="#FFFFFF"/>
+
+            <mehdi.sakout.fancybuttons.FancyButton
+                android:id="@+id/btn_facebook_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                fancy:borderColor="#FFFFFF"
+                fancy:borderWidth="1dp"
+                fancy:defaultColor="#3b5998"
+                fancy:focusColor="#5577bd"
+                fancy:fontIconResource="@string/icon_share"
+                fancy:fontIconSize="10sp"
+                fancy:iconPosition="right"
+                fancy:radius="30dp"
+                fancy:text="Share the link"
+                fancy:textColor="#FFFFFF"/>
+
+            <mehdi.sakout.fancybuttons.FancyButton
+                android:id="@+id/btn_facebook_follow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                fancy:borderColor="#FFFFFF"
+                fancy:borderWidth="1dp"
+                fancy:defaultColor="#3b5998"
+                fancy:focusColor="#5577bd"
+                fancy:fontIconResource="@string/icon_follow"
+                fancy:fontIconSize="10sp"
+                fancy:iconPosition="right"
+                fancy:radius="30dp"
+                fancy:text="Follow Mehdi Sakout"
+                fancy:textColor="#FFFFFF" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/section_socialnetworks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:gravity="center_horizontal"
+            android:minHeight="200dp"
+            android:orientation="vertical"
+            android:padding="20dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
+                android:gravity="center" >
+
+                <mehdi.sakout.fancybuttons.FancyButton
+                    android:id="@+id/btn_android"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:padding="10dp"
+                    fancy:defaultColor="#55acee"
+                    fancy:focusColor="#313131"
+                    fancy:iconResource="@drawable/twitter"
+                    fancy:radius="30dp"
+                    fancy:textColor="#FFFFFF" />
+
+                <mehdi.sakout.fancybuttons.FancyButton
+                    android:id="@+id/btn_dropbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:padding="10dp"
+                    fancy:defaultColor="#007ee5"
+                    fancy:focusColor="#313131"
+                    fancy:iconResource="@drawable/dropbox"
+                    fancy:radius="30dp">
+                </mehdi.sakout.fancybuttons.FancyButton>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sn_pos2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <mehdi.sakout.fancybuttons.FancyButton
+                    android:id="@+id/btn_instagram"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:padding="10dp"
+                    fancy:defaultColor="#3f729b"
+                    fancy:focusColor="#313131"
+                    fancy:iconResource="@drawable/instagram"
+                    fancy:radius="30dp">
+                </mehdi.sakout.fancybuttons.FancyButton>
+
+                <mehdi.sakout.fancybuttons.FancyButton
+                    android:id="@+id/btn_sound"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:padding="10dp"
+                    fancy:defaultColor="#ff8800"
+                    fancy:focusColor="#313131"
+                    fancy:iconResource="@drawable/soundcloud"
+                    fancy:radius="30dp">
+                </mehdi.sakout.fancybuttons.FancyButton>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <mehdi.sakout.fancybuttons.FancyButton
+                    android:id="@+id/btn_gplus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:padding="10dp"
+                    fancy:defaultColor="#dd4b39"
+                    fancy:focusColor="#313131"
+                    fancy:iconResource="@drawable/gplus"
+                    fancy:radius="30dp">
+                </mehdi.sakout.fancybuttons.FancyButton>
+
+                <mehdi.sakout.fancybuttons.FancyButton
+                    android:id="@+id/btn_facebook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:padding="10dp"
+                    fancy:defaultColor="#000000"
+                    fancy:focusColor="#313131"
+                    fancy:iconResource="@drawable/github"
+                    fancy:radius="30dp" >
+                </mehdi.sakout.fancybuttons.FancyButton>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/section_spotify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#222326"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="20dp" >
+            <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btn_spotify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            fancy:defaultColor="#7ab800"
+            fancy:focusColor="#9bd823"
+            fancy:fontIconResource="&#xf04b;"
+            fancy:iconPosition="left"
+            fancy:radius="30dp"
+            fancy:text="SHUFFLE PLAY"
+            fancy:textColor="#FFFFFF" />
+
+            <mehdi.sakout.fancybuttons.FancyButton
+                android:id="@+id/btn_spotify_pause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                fancy:defaultColor="#7ab800"
+                fancy:focusColor="#9bd823"
+                fancy:fontIconResource="&#xf04c;"
+                fancy:iconPosition="left"
+                fancy:radius="30dp"
+                fancy:text="PAUSE"
+                fancy:textColor="#FFFFFF" />
+            <mehdi.sakout.fancybuttons.FancyButton
+                android:id="@+id/btn_spotify_follow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                fancy:defaultColor="#222326"
+                fancy:focusColor="#424243"
+                fancy:radius="30dp"
+                fancy:text="FOLOW"
+                fancy:borderColor="#88898c"
+                fancy:borderWidth="1dp"
+                fancy:textColor="#dfe0d9" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/section_twitter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#55acee"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="20dp" >
+
+            <mehdi.sakout.fancybuttons.FancyButton
+                android:id="@+id/btn_twitter_follow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:padding="5dp"
+                fancy:borderColor="#FFFFFF"
+                fancy:borderWidth="2dp"
+                fancy:defaultColor="#55acee"
+                fancy:focusColor="#8cc9f8"
+                fancy:iconResource="@drawable/twitter"
+                fancy:text="Follow me on Twitter"
+                fancy:textColor="#FFFFFF"/>
+
+            <mehdi.sakout.fancybuttons.FancyButton
+                android:id="@+id/btn_twitter_followers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                fancy:borderColor="#FFFFFF"
+                fancy:borderWidth="2dp"
+                fancy:defaultColor="#55acee"
+                fancy:focusColor="#8cc9f8"
+                fancy:fontIconResource="@string/icon_user"
+                fancy:fontIconSize="10sp"
+                fancy:iconPosition="top"
+                fancy:text="2145 followers"
+                fancy:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ff5f69"
+            android:gravity="center"
+            android:paddingBottom="30dp"
+            android:paddingTop="30dp" >
+
+            <mehdi.sakout.fancybuttons.FancyButton
+                android:id="@+id/btn_create_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:padding="10dp"
+                fancy:borderColor="#FFFFFF"
+                fancy:borderWidth="1dp"
+                fancy:defaultColor="#ff5f69"
+                fancy:focusColor="#ff838b"
+                fancy:radius="30dp"
+                fancy:text="Create an account"
+                fancy:textColor="#FFFFFF" >
+            </mehdi.sakout.fancybuttons.FancyButton>
+
+            <mehdi.sakout.fancybuttons.FancyButton
+                android:id="@+id/btn_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                fancy:borderColor="#FFFFFF"
+                fancy:borderWidth="1dp"
+                fancy:defaultColor="#ff5f69"
+                fancy:focusColor="#ff838b"
+                fancy:fontIconResource="@string/icon_user"
+                fancy:iconPosition="left"
+                fancy:radius="30dp"
+                fancy:text="Login"
+                fancy:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="20dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <mehdi.sakout.fancybuttons.FancyButton
+                    android:id="@+id/btn_download"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:padding="10dp"
+                    fancy:borderColor="#FFFFFF"
+                    fancy:borderWidth="2dp"
+                    fancy:defaultColor="#3b414f"
+                    fancy:focusColor="#8cc9f8"
+                    fancy:fontIconResource="@string/icon_download"
+                    fancy:fontIconSize="10sp"
+                    fancy:iconPosition="top"
+                    fancy:radius="10dp"
+                    fancy:text="Download the file"
+                    fancy:textColor="#FFFFFF">
+                </mehdi.sakout.fancybuttons.FancyButton>
+
+                <mehdi.sakout.fancybuttons.FancyButton
+                    android:id="@+id/btn_upload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:padding="10dp"
+                    fancy:borderColor="#FFFFFF"
+                    fancy:borderWidth="2dp"
+                    fancy:defaultColor="#3b414f"
+                    fancy:focusColor="#8cc9f8"
+                    fancy:fontIconResource="@string/icon_upload"
+                    fancy:fontIconSize="10sp"
+                    fancy:radius="10dp"
+                    fancy:iconPosition="bottom"
+                    fancy:text="Upload"
+                    fancy:textColor="#FFFFFF">
+                </mehdi.sakout.fancybuttons.FancyButton>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <mehdi.sakout.fancybuttons.FancyButton
+                    android:id="@+id/btn_twitter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:padding="10dp"
+                    fancy:borderColor="#FFFFFF"
+                    fancy:borderWidth="2dp"
+                    fancy:defaultColor="#40a75a"
+                    fancy:focusColor="#8cc9f8"
+                    fancy:fontIconResource="@string/icon_user"
+                    fancy:fontIconSize="15sp"
+                    fancy:iconPosition="left"
+                    fancy:text="Send"
+                    fancy:radius="10dp"
+                    fancy:textColor="#FFFFFF">
+                </mehdi.sakout.fancybuttons.FancyButton>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <mehdi.sakout.fancybuttons.FancyButton
+                    android:id="@+id/btn_decline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:padding="10dp"
+                    fancy:borderColor="#FFFFFF"
+                    fancy:borderWidth="0dp"
+                    fancy:defaultColor="#d86262"
+                    fancy:focusColor="#2e5071"
+                    fancy:fontIconResource="@string/icon_mute"
+                    fancy:fontIconSize="10dp"
+                    fancy:iconPosition="right"
+                    fancy:radius="30dp"
+                    fancy:text="Mute"
+                    fancy:textColor="#ffffff" />
+
+                <mehdi.sakout.fancybuttons.FancyButton
+                    android:id="@+id/btn_answer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"
+                    android:padding="10dp"
+                    fancy:defaultColor="#7ed862"
+                    fancy:focusColor="#2e5071"
+                    fancy:fontIconResource="@string/icon_answer"
+                    fancy:fontIconSize="10dp"
+                    fancy:iconPosition="right"
+                    fancy:radius="30dp"
+                    fancy:text="Answer the call"
+                    fancy:textColor="#ffffff" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
