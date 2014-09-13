@@ -48,7 +48,7 @@
 | fancy:textColor     | setTextColor(int)      |  Text Color of the button |
 | fancy:textSize | setTextSize(int)      |    Size of the text |
 | fancy:textFont | setCustomTextFont(String)      |    FontFamily of the text|
-| fancy:IconResource | setIconResource(Drawable)      |    Drawable icon of the button|
+| fancy:iconResource | setIconResource(Drawable)      |    Drawable icon of the button|
 | fancy:iconPosition | setsetIconPosition(int)      |    Position of the icon : Left, Right, Top, Bottom|
 | fancy:fontIconResource | setIconResource(String)      |    font icon of the button|
 | fancy:fontIconSize | setFontIconSize(int)      |    Size of the icon |
