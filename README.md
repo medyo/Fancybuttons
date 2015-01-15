@@ -23,9 +23,9 @@
     * bottom  
 * Icon Size
 
-### Including in your project : Gradle
+### Including in your project : Maven Central
 
-	dependencies { compile project(':fancybuttons_library') }
+	compile 'com.github.medyo:fancybuttons:1.0@aar'
 
 ### Usage
 
