@@ -50,6 +50,8 @@
                 fancy:fontIconResource="@string/icon_share"
                 fancy:fontIconSize="10sp"
                 fancy:iconPosition="right"
+                fancy:iconPaddingLeft="20dp"
+                fancy:iconPaddingRight= "100dp"
                 fancy:radius="30dp"
                 fancy:text="Share the link"
                 fancy:textColor="#FFFFFF"/>

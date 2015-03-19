@@ -45,6 +45,7 @@ public class ProgramButtons extends ActionBarActivity {
         installBtn.setFocusBackgroundColor(Color.parseColor("#bfe156"));
         installBtn.setTextSize(17);
         installBtn.setRadius(5);
+        installBtn.setIconPadding(0,30,0,0);
 
         FancyButton signupBtn = new FancyButton(this);
         signupBtn.setText("Repost the song");
@@ -53,6 +54,7 @@ public class ProgramButtons extends ActionBarActivity {
         signupBtn.setFocusBackgroundColor(Color.parseColor("#ffa43c"));
         signupBtn.setTextSize(20);
         signupBtn.setCustomTextFont("robotothin.ttf");
+        signupBtn.setIconPadding(10,0,10,0);
 
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutParams.setMargins(0,0,0,10);

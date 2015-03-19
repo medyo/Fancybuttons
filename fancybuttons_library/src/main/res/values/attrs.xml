@@ -19,6 +19,19 @@
             <enum name="top" value="3" />
             <enum name="bottom" value="4" />
         </attr>
+
+        <attr name="textPosition" format="enum">
+            <enum name="left" value="1" />
+            <enum name="right" value="2" />
+            <enum name="top" value="3" />
+            <enum name="bottom" value="4" />
+        </attr>
+
+        <attr name="iconPaddingLeft" format="dimension" />
+        <attr name="iconPaddingRight" format="dimension" />
+        <attr name="iconPaddingTop" format="dimension" />
+        <attr name="iconPaddingBottom" format="dimension" />
+
         <attr name="borderColor" format="color" />
         <attr name="borderWidth" format="dimension"/>
         <attr name="focusColor" format="color" />
