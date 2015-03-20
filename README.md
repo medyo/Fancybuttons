@@ -25,7 +25,7 @@
 
 ### Including in your project : Maven Central
 
-	compile 'com.github.medyo:fancybuttons:1.0@aar'
+	compile 'com.github.medyo:fancybuttons:1.1@aar'
 
 ### Usage
 
@@ -58,6 +58,10 @@
 | fancy:defaultColor | setBackgroundColor(int)      |    Background color of the button|
 | fancy:focusColor | setFocusBackgroundColor(int)      |    Focus Color of border background|
 | fancy:radius | setRadius(int)      |    Radius of the button|
+| fancy:iconPaddingLeft | setIconPadding(int,int,int,int)      |    Icon Padding|
+| fancy:iconPaddingRight | setIconPadding(int,int,int,int)      |    Icon Padding|
+| fancy:iconPaddingTop | setIconPadding(int,int,int,int)      |    Icon Padding|
+| fancy:iconPaddingBottom | setIconPadding(int,int,int,int)      |    Icon Padding|
 
 #### Sample
 
@@ -95,7 +99,7 @@
     facebookLoginBtn.setRadius(5);
     facebookLoginBtn.setIconResource("\uf082");
     facebookLoginBtn.setIconPosition(FancyButton.POSITION_LEFT);
-    acebookLoginBtn.setFontIconSize(30);
+    facebookLoginBtn.setFontIconSize(30);
 	
 See the [example project](https://github.com/medyo/fancybuttons/tree/master/samples/src/main/java/mehdi/sakout/fancybuttons/samples) for more samples	
 
