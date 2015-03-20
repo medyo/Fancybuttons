@@ -50,6 +50,8 @@
                 fancy:fontIconResource="@string/icon_share"
                 fancy:fontIconSize="10sp"
                 fancy:iconPosition="right"
+                fancy:iconPaddingLeft="20dp"
+                fancy:iconPaddingRight= "0dp"
                 fancy:radius="30dp"
                 fancy:text="Share the link"
                 fancy:textColor="#FFFFFF"/>
@@ -98,6 +100,8 @@
                     fancy:defaultColor="#55acee"
                     fancy:focusColor="#313131"
                     fancy:iconResource="@drawable/twitter"
+                    fancy:iconPaddingLeft="0dp"
+                    fancy:iconPaddingRight="0dp"
                     fancy:radius="30dp"
                     fancy:textColor="#FFFFFF" />
 
@@ -108,6 +112,8 @@
                     android:layout_marginRight="10dp"
                     android:padding="10dp"
                     fancy:defaultColor="#007ee5"
+                    fancy:iconPaddingLeft="0dp"
+                    fancy:iconPaddingRight="0dp"
                     fancy:focusColor="#313131"
                     fancy:iconResource="@drawable/dropbox"
                     fancy:radius="30dp">
@@ -129,6 +135,8 @@
                     android:layout_marginRight="10dp"
                     android:padding="10dp"
                     fancy:defaultColor="#3f729b"
+                    fancy:iconPaddingLeft="0dp"
+                    fancy:iconPaddingRight="0dp"
                     fancy:focusColor="#313131"
                     fancy:iconResource="@drawable/instagram"
                     fancy:radius="30dp">
@@ -141,6 +149,8 @@
                     android:layout_marginRight="10dp"
                     android:padding="10dp"
                     fancy:defaultColor="#ff8800"
+                    fancy:iconPaddingLeft="0dp"
+                    fancy:iconPaddingRight="0dp"
                     fancy:focusColor="#313131"
                     fancy:iconResource="@drawable/soundcloud"
                     fancy:radius="30dp">
@@ -161,6 +171,8 @@
                     android:layout_marginRight="10dp"
                     android:padding="10dp"
                     fancy:defaultColor="#dd4b39"
+                    fancy:iconPaddingLeft="0dp"
+                    fancy:iconPaddingRight="0dp"
                     fancy:focusColor="#313131"
                     fancy:iconResource="@drawable/gplus"
                     fancy:radius="30dp">
@@ -173,6 +185,8 @@
                     android:layout_marginRight="10dp"
                     android:padding="10dp"
                     fancy:defaultColor="#000000"
+                    fancy:iconPaddingLeft="0dp"
+                    fancy:iconPaddingRight="0dp"
                     fancy:focusColor="#313131"
                     fancy:iconResource="@drawable/github"
                     fancy:radius="30dp" >
@@ -255,6 +269,7 @@
                 fancy:borderWidth="2dp"
                 fancy:defaultColor="#55acee"
                 fancy:focusColor="#8cc9f8"
+                fancy:iconPaddingLeft="40dp"
                 fancy:iconResource="@drawable/twitter"
                 fancy:text="Follow me on Twitter"
                 fancy:textColor="#FFFFFF"/>
