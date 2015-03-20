@@ -22,6 +22,7 @@
     * top
     * bottom  
 * Icon Size
+* Icon Padding
 
 ### Including in your project : Maven Central
 
