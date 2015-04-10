@@ -32,6 +32,7 @@ public class FancyButton  extends LinearLayout{
     private int mDefaultTextColor 				= Color.WHITE;
     private int mTextPosition 					= 1;
     private int mDefaultTextSize 				= 15;
+    private int mDefaultTextGravity             = 0x11; // Gravity.CENTER
     private String mText 						= null;
 
     // # Icon Attributes
@@ -171,7 +172,7 @@ public class FancyButton  extends LinearLayout{
         if (mText != null) {
             TextView textView = new TextView(mContext);
             textView.setText(mText);
-            textView.setGravity(Gravity.CENTER);
+            textView.setGravity(mDefaultTextGravity);
             textView.setTextColor(mDefaultTextColor);
             textView.setTextSize(mDefaultTextSize);
 
@@ -269,10 +270,11 @@ public class FancyButton  extends LinearLayout{
 
         mDefaultTextColor 				= attrsArray.getColor(R.styleable.FancyButtonsAttrs_textColor,mDefaultTextColor);
         mDefaultTextSize				= (int) attrsArray.getDimension(R.styleable.FancyButtonsAttrs_textSize,mDefaultTextSize);
+        mDefaultTextGravity             = attrsArray.getInt(R.styleable.FancyButtonsAttrs_textGravity, mDefaultTextGravity);
 
         mBorderColor 					= attrsArray.getColor(R.styleable.FancyButtonsAttrs_borderColor,mBorderColor);
         mBorderWidth					= (int) attrsArray.getDimension(R.styleable.FancyButtonsAttrs_borderWidth,mBorderWidth);
-
+        
         mRadius 						= (int)attrsArray.getDimension(R.styleable.FancyButtonsAttrs_radius,mRadius);
         mFontIconSize 					= (int)attrsArray.getDimension(R.styleable.FancyButtonsAttrs_fontIconSize,mFontIconSize);
 
@@ -444,6 +446,18 @@ public class FancyButton  extends LinearLayout{
         this.mDefaultTextSize = textSize;
         if(mTextView != null)
             mTextView.setTextSize(textSize);
+    }
+
+    /**
+     * Set the gravity of Text
+     * @param gravity : Text Gravity
+     */
+
+    public void setTextGravity(int gravity) {
+        this.mDefaultTextGravity = gravity;
+        if (mTextView != null) {
+            mTextView.setGravity(gravity);
+        }
     }
 
     /**
