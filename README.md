@@ -26,7 +26,7 @@
 
 ### Including in your project : Maven Central
 
-	compile 'com.github.medyo:fancybuttons:1.1@aar'
+	compile 'com.github.medyo:fancybuttons:1.2@aar'
 
 ### Usage
 
@@ -49,6 +49,7 @@
 | fancy:textColor     | setTextColor(int)      |  Text Color of the button |
 | fancy:textSize | setTextSize(int)      |    Size of the text |
 | fancy:textFont | setCustomTextFont(String)      |    FontFamily of the text|
+| fancy:textGravity | setTextGravity(Int)      |    Gravity of the text|
 | fancy:iconResource | setIconResource(Drawable)      |    Drawable icon of the button|
 | fancy:iconPosition | setsetIconPosition(int)      |    Position of the icon : Left, Right, Top, Bottom|
 | fancy:fontIconResource | setIconResource(String)      |    font icon of the button|
@@ -88,7 +89,7 @@
 	fancy:text="SHUFFLE PLAY"
 	fancy:textColor="#FFFFFF" />
 	
-**3 - Facebook Button **  
+**2 - Facebook Button**
   
 ![FancyButton Facebook](https://raw.github.com/medyo/fancybuttons/master/screenshots/facebook-button.png)  
 
