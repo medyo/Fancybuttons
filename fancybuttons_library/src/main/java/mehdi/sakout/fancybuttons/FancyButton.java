@@ -411,11 +411,9 @@ public class FancyButton  extends LinearLayout{
         this.mDefaultTextColor = color;
         if(mTextView == null)
             initializeFancyButton();
-        else {
+        else
             mTextView.setTextColor(color);
-            if(mFontIconView != null)
-                mFontIconView.setTextColor(color);
-        }
+
     }
 
     /**
