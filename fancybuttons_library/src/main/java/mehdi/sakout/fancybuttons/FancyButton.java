@@ -30,6 +30,7 @@ public class FancyButton  extends LinearLayout{
 
     // # Text Attributes
     private int mDefaultTextColor 				= Color.WHITE;
+    private int mDefaultIconColor               = Color.WHITE;
     private int mTextPosition 					= 1;
     private int mDefaultTextSize 				= 15;
     private int mDefaultTextGravity             = 0x11; // Gravity.CENTER
@@ -269,6 +270,8 @@ public class FancyButton  extends LinearLayout{
         mFocusBackgroundColor 			= attrsArray.getColor(R.styleable.FancyButtonsAttrs_focusColor,mFocusBackgroundColor);
 
         mDefaultTextColor 				= attrsArray.getColor(R.styleable.FancyButtonsAttrs_textColor,mDefaultTextColor);
+        // if default color is set then the icon's color is the same (the default for icon's color)
+        mDefaultIconColor               = attrsArray.getColor(R.styleable.FancyButtonsAttrs_iconColor,mDefaultTextColor);
         mDefaultTextSize				= (int) attrsArray.getDimension(R.styleable.FancyButtonsAttrs_textSize,mDefaultTextSize);
         mDefaultTextGravity             = attrsArray.getInt(R.styleable.FancyButtonsAttrs_textGravity, mDefaultTextGravity);
 
