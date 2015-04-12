@@ -417,6 +417,16 @@ public class FancyButton  extends LinearLayout{
     }
 
     /**
+     * Setting the icon's color independent of the text color
+     * @param color : Color
+     */
+    public void setIconColor(int color){
+        if(mFontIconView != null) {
+            mFontIconView.setTextColor(color);
+        }
+    }
+
+    /**
      * Set Background color of the button
      * @param color : use Color.parse('#code')
      */
