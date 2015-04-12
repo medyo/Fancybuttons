@@ -194,7 +194,7 @@ public class FancyButton  extends LinearLayout{
 
         if(mFontIcon!=null){
             TextView fontIconView = new TextView(mContext);
-            fontIconView.setTextColor(mDefaultTextColor);
+            fontIconView.setTextColor(mDefaultIconColor);
 
             LayoutParams iconTextViewParams = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT,1f);
             iconTextViewParams.rightMargin = mIconPaddingRight;
