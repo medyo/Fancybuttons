@@ -5,6 +5,7 @@
         <attr name="text" format="string"  />
 
         <attr name="textColor" format="color"  />
+        <attr name="iconColor" format="color"  />
 
         <attr name="textFont" format="string"  />
         <attr name="iconFont" format="string"  />

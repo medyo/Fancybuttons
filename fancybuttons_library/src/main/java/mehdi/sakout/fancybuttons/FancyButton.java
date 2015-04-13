@@ -30,6 +30,7 @@ public class FancyButton  extends LinearLayout{
 
     // # Text Attributes
     private int mDefaultTextColor 				= Color.WHITE;
+    private int mDefaultIconColor               = Color.WHITE;
     private int mTextPosition 					= 1;
     private int mDefaultTextSize 				= 15;
     private int mDefaultTextGravity             = 0x11; // Gravity.CENTER
@@ -193,7 +194,7 @@ public class FancyButton  extends LinearLayout{
 
         if(mFontIcon!=null){
             TextView fontIconView = new TextView(mContext);
-            fontIconView.setTextColor(mDefaultTextColor);
+            fontIconView.setTextColor(mDefaultIconColor);
 
             LayoutParams iconTextViewParams = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT,1f);
             iconTextViewParams.rightMargin = mIconPaddingRight;
@@ -269,6 +270,8 @@ public class FancyButton  extends LinearLayout{
         mFocusBackgroundColor 			= attrsArray.getColor(R.styleable.FancyButtonsAttrs_focusColor,mFocusBackgroundColor);
 
         mDefaultTextColor 				= attrsArray.getColor(R.styleable.FancyButtonsAttrs_textColor,mDefaultTextColor);
+        // if default color is set then the icon's color is the same (the default for icon's color)
+        mDefaultIconColor               = attrsArray.getColor(R.styleable.FancyButtonsAttrs_iconColor,mDefaultTextColor);
         mDefaultTextSize				= (int) attrsArray.getDimension(R.styleable.FancyButtonsAttrs_textSize,mDefaultTextSize);
         mDefaultTextGravity             = attrsArray.getInt(R.styleable.FancyButtonsAttrs_textGravity, mDefaultTextGravity);
 
@@ -414,6 +417,16 @@ public class FancyButton  extends LinearLayout{
         else
             mTextView.setTextColor(color);
 
+    }
+
+    /**
+     * Setting the icon's color independent of the text color
+     * @param color : Color
+     */
+    public void setIconColor(int color){
+        if(mFontIconView != null) {
+            mFontIconView.setTextColor(color);
+        }
     }
 
     /**
