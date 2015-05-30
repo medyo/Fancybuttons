@@ -54,6 +54,8 @@
         <attr name="borderWidth" format="dimension"/>
         <attr name="focusColor" format="color" />
         <attr name="radius" format="dimension" />
+
+        <attr name="ghost" format="boolean"></attr>
     </declare-styleable>
 
 </resources> 

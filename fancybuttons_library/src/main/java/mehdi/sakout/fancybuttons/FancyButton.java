@@ -72,6 +72,8 @@ public class FancyButton  extends LinearLayout{
     private  TextView mFontIconView;
     private TextView mTextView;
 
+    private boolean mGhost = false ; // Default is a solid button !
+
     /**
      * Default constructor
      * @param context : Context
@@ -285,6 +287,8 @@ public class FancyButton  extends LinearLayout{
         mIconPaddingRight               = (int)attrsArray.getDimension(R.styleable.FancyButtonsAttrs_iconPaddingRight,mIconPaddingRight);
         mIconPaddingTop                 = (int)attrsArray.getDimension(R.styleable.FancyButtonsAttrs_iconPaddingTop,mIconPaddingTop);
         mIconPaddingBottom              = (int)attrsArray.getDimension(R.styleable.FancyButtonsAttrs_iconPaddingBottom,mIconPaddingBottom);
+
+        mGhost = attrsArray.getBoolean(R.styleable.FancyButtonsAttrs_ghost, mGhost);
 
         String text 					= attrsArray.getString(R.styleable.FancyButtonsAttrs_text);
         mIconPosition 					= attrsArray.getInt(R.styleable.FancyButtonsAttrs_iconPosition,mIconPosition);
@@ -617,6 +621,14 @@ public class FancyButton  extends LinearLayout{
         else
             mFontIconView.setTypeface(mIconTypeFace);
 
+    }
+
+    /**
+     * Setting the button to have hollow or solid shape
+     * @param ghost
+     */
+    public void setGhost(boolean ghost) {
+        this.mGhost = ghost;
     }
 
 }
