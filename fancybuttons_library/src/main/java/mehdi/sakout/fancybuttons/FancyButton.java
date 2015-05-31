@@ -369,7 +369,12 @@ public class FancyButton  extends LinearLayout{
             drawable2.setColor(mFocusBackgroundColor);
         }
         if (mBorderColor != 0) {
-            drawable2.setStroke(mBorderWidth, mBorderColor);
+            if (mGhost) {
+                drawable2.setStroke(mBorderWidth, mFocusBackgroundColor); // Border is the main part of button now
+            }
+            else {
+                drawable2.setStroke(mBorderWidth, mBorderColor);
+            }
         }
 
         StateListDrawable states = new StateListDrawable();
@@ -639,6 +644,11 @@ public class FancyButton  extends LinearLayout{
      */
     public void setGhost(boolean ghost) {
         this.mGhost = ghost;
+
+        if(mIconView != null || mFontIconView != null || mTextView != null){
+            this.setupBackground();
+        }
+
     }
 
 }
