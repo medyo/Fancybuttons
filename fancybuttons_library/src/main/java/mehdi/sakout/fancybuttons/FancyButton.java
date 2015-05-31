@@ -349,7 +349,12 @@ public class FancyButton  extends LinearLayout{
         // Default Drawable
         GradientDrawable drawable = new GradientDrawable();
         drawable.setCornerRadius(mRadius);
-        drawable.setColor(mDefaultBackgroundColor);
+        if (mGhost){
+            drawable.setColor(getResources().getColor(android.R.color.transparent)); // Hollow Background
+        }
+        else {
+            drawable.setColor(mDefaultBackgroundColor);
+        }
         if (mBorderColor != 0) {
             drawable.setStroke(mBorderWidth, mBorderColor);
         }
@@ -357,7 +362,12 @@ public class FancyButton  extends LinearLayout{
         // Focus/Pressed Drawable
         GradientDrawable drawable2 = new GradientDrawable();
         drawable2.setCornerRadius(mRadius);
-        drawable2.setColor(mFocusBackgroundColor);
+        if (mGhost){
+            drawable2.setColor(getResources().getColor(android.R.color.transparent)); // No focus color
+        }
+        else {
+            drawable2.setColor(mFocusBackgroundColor);
+        }
         if (mBorderColor != 0) {
             drawable2.setStroke(mBorderWidth, mBorderColor);
         }
