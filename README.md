@@ -30,12 +30,12 @@
 
 ### Usage
 
-1 - Include FancyButtons namespace to the root element : 
+1 - Include FancyButtons namespace to the root element :
 
-	xmlns:fancy="http://schemas.android.com/apk/res-auto" 
-	
+	xmlns:fancy="http://schemas.android.com/apk/res-auto"
+
 2 - Add the FancyButton View with custom params :
-	
+
 	<mehdi.sakout.fancybuttons.FancyButton
 	android:id="@+id/btn_preview"
 	android:layout_width="wrap_content"
@@ -64,11 +64,12 @@
 | fancy:iconPaddingRight | setIconPadding(int,int,int,int)      |    Icon Padding|
 | fancy:iconPaddingTop | setIconPadding(int,int,int,int)      |    Icon Padding|
 | fancy:iconPaddingBottom | setIconPadding(int,int,int,int)      |    Icon Padding|
+| fancy:ghost | setGhost(boolean)      |    Ghost (Hollow)|
 
 #### Sample
 
 **1 - Spotify Button**  
-  
+
 ![FancyButton Spotify](https://raw.github.com/medyo/fancybuttons/master/screenshots/spotify-button.png)  
 
 	<mehdi.sakout.fancybuttons.FancyButton
@@ -88,9 +89,9 @@
 	fancy:radius="30dp"
 	fancy:text="SHUFFLE PLAY"
 	fancy:textColor="#FFFFFF" />
-	
+
 **2 - Facebook Button**
-  
+
 ![FancyButton Facebook](https://raw.github.com/medyo/fancybuttons/master/screenshots/facebook-button.png)  
 
     FancyButton facebookLoginBtn = new FancyButton(this);
@@ -102,8 +103,8 @@
     facebookLoginBtn.setIconResource("\uf082");
     facebookLoginBtn.setIconPosition(FancyButton.POSITION_LEFT);
     facebookLoginBtn.setFontIconSize(30);
-	
-See the [example project](https://github.com/medyo/fancybuttons/tree/master/samples/src/main/java/mehdi/sakout/fancybuttons/samples) for more samples	
+
+See the [example project](https://github.com/medyo/fancybuttons/tree/master/samples/src/main/java/mehdi/sakout/fancybuttons/samples) for more samples
 
 ### Bonus
 

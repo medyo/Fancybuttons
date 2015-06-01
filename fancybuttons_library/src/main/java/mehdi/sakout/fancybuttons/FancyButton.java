@@ -72,6 +72,8 @@ public class FancyButton  extends LinearLayout{
     private  TextView mFontIconView;
     private TextView mTextView;
 
+    private boolean mGhost = false ; // Default is a solid button !
+
     /**
      * Default constructor
      * @param context : Context
@@ -286,6 +288,8 @@ public class FancyButton  extends LinearLayout{
         mIconPaddingTop                 = (int)attrsArray.getDimension(R.styleable.FancyButtonsAttrs_iconPaddingTop,mIconPaddingTop);
         mIconPaddingBottom              = (int)attrsArray.getDimension(R.styleable.FancyButtonsAttrs_iconPaddingBottom,mIconPaddingBottom);
 
+        mGhost = attrsArray.getBoolean(R.styleable.FancyButtonsAttrs_ghost, mGhost);
+
         String text 					= attrsArray.getString(R.styleable.FancyButtonsAttrs_text);
         mIconPosition 					= attrsArray.getInt(R.styleable.FancyButtonsAttrs_iconPosition,mIconPosition);
 
@@ -345,7 +349,12 @@ public class FancyButton  extends LinearLayout{
         // Default Drawable
         GradientDrawable drawable = new GradientDrawable();
         drawable.setCornerRadius(mRadius);
-        drawable.setColor(mDefaultBackgroundColor);
+        if (mGhost){
+            drawable.setColor(getResources().getColor(android.R.color.transparent)); // Hollow Background
+        }
+        else {
+            drawable.setColor(mDefaultBackgroundColor);
+        }
         if (mBorderColor != 0) {
             drawable.setStroke(mBorderWidth, mBorderColor);
         }
@@ -353,9 +362,19 @@ public class FancyButton  extends LinearLayout{
         // Focus/Pressed Drawable
         GradientDrawable drawable2 = new GradientDrawable();
         drawable2.setCornerRadius(mRadius);
-        drawable2.setColor(mFocusBackgroundColor);
+        if (mGhost){
+            drawable2.setColor(getResources().getColor(android.R.color.transparent)); // No focus color
+        }
+        else {
+            drawable2.setColor(mFocusBackgroundColor);
+        }
         if (mBorderColor != 0) {
-            drawable2.setStroke(mBorderWidth, mBorderColor);
+            if (mGhost) {
+                drawable2.setStroke(mBorderWidth, mFocusBackgroundColor); // Border is the main part of button now
+            }
+            else {
+                drawable2.setStroke(mBorderWidth, mBorderColor);
+            }
         }
 
         StateListDrawable states = new StateListDrawable();
@@ -616,6 +635,19 @@ public class FancyButton  extends LinearLayout{
             initializeFancyButton();
         else
             mFontIconView.setTypeface(mIconTypeFace);
+
+    }
+
+    /**
+     * Setting the button to have hollow or solid shape
+     * @param ghost
+     */
+    public void setGhost(boolean ghost) {
+        this.mGhost = ghost;
+
+        if(mIconView != null || mFontIconView != null || mTextView != null){
+            this.setupBackground();
+        }
 
     }
 
