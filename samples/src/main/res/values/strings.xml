@@ -38,4 +38,7 @@
     <string name="icon_download">&#xf0ed;</string>
     <string name="icon_upload">&#xf0ee;</string>
     <string name="icon_config">&#xf085;</string>
+    <string name="icon_creditcard">&#xf09d;</string>
+    <string name="ghost_button_title">Ghost Button</string>
+    <string name="icon_envelope"></string>
 </resources>

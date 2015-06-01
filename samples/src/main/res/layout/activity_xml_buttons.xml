@@ -202,21 +202,21 @@
             android:orientation="vertical"
             android:padding="20dp" >
             <mehdi.sakout.fancybuttons.FancyButton
-            android:id="@+id/btn_spotify"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+                android:id="@+id/btn_spotify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-            android:paddingBottom="10dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:paddingTop="10dp"
-            fancy:defaultColor="#7ab800"
-            fancy:focusColor="#9bd823"
-            fancy:fontIconResource="&#xf04b;"
-            fancy:iconPosition="left"
-            fancy:radius="30dp"
-            fancy:text="SHUFFLE PLAY"
-            fancy:textColor="#FFFFFF" />
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                fancy:defaultColor="#7ab800"
+                fancy:focusColor="#9bd823"
+                fancy:fontIconResource="&#xf04b;"
+                fancy:iconPosition="left"
+                fancy:radius="30dp"
+                fancy:text="SHUFFLE PLAY"
+                fancy:textColor="#FFFFFF" />
 
             <mehdi.sakout.fancybuttons.FancyButton
                 android:id="@+id/btn_spotify_pause"
@@ -443,6 +443,82 @@
                     fancy:text="Answer the call"
                     fancy:textColor="#ffffff" />
 
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="20dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#55acee">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ghost_button_title"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="#ff000000"/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <mehdi.sakout.fancybuttons.FancyButton
+                    android:id="@+id/btn_ghost_deposit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"
+                    android:padding="15dp"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    fancy:ghost="true"
+                    fancy:focusColor="#fffffefa"
+                    fancy:fontIconResource="@string/icon_creditcard"
+                    fancy:fontIconSize="5dp"
+                    fancy:radius="40dp"
+                    fancy:iconPosition="right"
+                    fancy:borderWidth="2dp"
+                    fancy:borderColor="#ffe7e6e2"
+                    fancy:text="Deposit"
+                    fancy:textColor="#ffffff" />
+
+                <mehdi.sakout.fancybuttons.FancyButton
+                    android:id="@+id/btn_ghost_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"
+                    android:padding="15dp"
+                    android:paddingRight="30dp"
+                    android:paddingLeft="30dp"
+                    fancy:ghost="true"
+                    fancy:focusColor="#ffa8f192"
+                    fancy:fontIconResource="@string/icon_envelope"
+                    fancy:fontIconSize="5dp"
+                    fancy:radius="25dp"
+                    fancy:iconPosition="right"
+                    fancy:borderWidth="2dp"
+                    fancy:borderColor="#7ed862"
+                    fancy:text="Contact"
+                    fancy:textColor="#ffa8f192" />
             </LinearLayout>
 
         </LinearLayout>
