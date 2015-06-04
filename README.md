@@ -45,26 +45,26 @@
 
 | XML Attribut        | Java Attribut           | Description  |
 | ------------- |:-------------:| -----:|
-| fancy:text      | setText(String)     | Text of the button |
-| fancy:textColor     | setTextColor(int)      |  Text Color of the button |
-| fancy:textSize | setTextSize(int)      |    Size of the text |
-| fancy:textFont | setCustomTextFont(String)      |    FontFamily of the text|
-| fancy:textGravity | setTextGravity(Int)      |    Gravity of the text|
-| fancy:iconResource | setIconResource(Drawable)      |    Drawable icon of the button|
-| fancy:iconPosition | setsetIconPosition(int)      |    Position of the icon : Left, Right, Top, Bottom|
-| fancy:fontIconResource | setIconResource(String)      |    font icon of the button|
-| fancy:fontIconSize | setFontIconSize(int)      |    Size of the icon |
-| fancy:iconFont | setCustomIconFont(String)      |    FontFamily of the icon|
-| fancy:borderWidth | setBorderWidth(int)      |    Width of the border|
-| fancy:borderColor | setBorderColor(int)      |    Color of the border|
-| fancy:defaultColor | setBackgroundColor(int)      |    Background color of the button|
-| fancy:focusColor | setFocusBackgroundColor(int)      |    Focus Color of border background|
-| fancy:radius | setRadius(int)      |    Radius of the button|
-| fancy:iconPaddingLeft | setIconPadding(int,int,int,int)      |    Icon Padding|
-| fancy:iconPaddingRight | setIconPadding(int,int,int,int)      |    Icon Padding|
-| fancy:iconPaddingTop | setIconPadding(int,int,int,int)      |    Icon Padding|
-| fancy:iconPaddingBottom | setIconPadding(int,int,int,int)      |    Icon Padding|
-| fancy:ghost | setGhost(boolean)      |    Ghost (Hollow)|
+| fancy:fb_text      | setText(String)     | Text of the button |
+| fancy:fb_textColor     | setTextColor(int)      |  Text Color of the button |
+| fancy:fb_textSize | setTextSize(int)      |    Size of the text |
+| fancy:fb_textFont | setCustomTextFont(String)      |    FontFamily of the text|
+| fancy:fb_textGravity | setTextGravity(Int)      |    Gravity of the text|
+| fancy:fb_iconResource | setIconResource(Drawable)      |    Drawable icon of the button|
+| fancy:fb_iconPosition | setsetIconPosition(int)      |    Position of the icon : Left, Right, Top, Bottom|
+| fancy:fb_fontIconResource | setIconResource(String)      |    font icon of the button|
+| fancy:fb_fontIconSize | setFontIconSize(int)      |    Size of the icon |
+| fancy:fb_iconFont | setCustomIconFont(String)      |    FontFamily of the icon|
+| fancy:fb_borderWidth | setBorderWidth(int)      |    Width of the border|
+| fancy:fb_borderColor | setBorderColor(int)      |    Color of the border|
+| fancy:fb_defaultColor | setBackgroundColor(int)      |    Background color of the button|
+| fancy:fb_focusColor | setFocusBackgroundColor(int)      |    Focus Color of border background|
+| fancy:fb_radius | setRadius(int)      |    Radius of the button|
+| fancy:fb_iconPaddingLeft | setIconPadding(int,int,int,int)      |    Icon Padding|
+| fancy:fb_iconPaddingRight | setIconPadding(int,int,int,int)      |    Icon Padding|
+| fancy:fb_iconPaddingTop | setIconPadding(int,int,int,int)      |    Icon Padding|
+| fancy:fb_iconPaddingBottom | setIconPadding(int,int,int,int)      |    Icon Padding|
+| fancy:fb_ghost | setGhost(boolean)      |    Ghost (Hollow)|
 
 #### Sample
 
@@ -80,15 +80,15 @@
 	android:paddingLeft="20dp"
 	android:paddingRight="20dp"
 	android:paddingTop="10dp"
-	fancy:borderColor="#FFFFFF"
-	fancy:borderWidth="1dp"
-	fancy:defaultColor="#7ab800"
-	fancy:focusColor="#9bd823"
-	fancy:fontIconResource="&#xf04b;"
-	fancy:iconPosition="left"
-	fancy:radius="30dp"
-	fancy:text="SHUFFLE PLAY"
-	fancy:textColor="#FFFFFF" />
+	fancy:fb_borderColor="#FFFFFF"
+	fancy:fb_borderWidth="1dp"
+	fancy:fb_defaultColor="#7ab800"
+	fancy:fb_focusColor="#9bd823"
+	fancy:fb_fontIconResource="&#xf04b;"
+	fancy:fb_iconPosition="left"
+	fancy:fb_radius="30dp"
+	fancy:fb_text="SHUFFLE PLAY"
+	fancy:fb_textColor="#FFFFFF" />
 
 **2 - Facebook Button**
 
