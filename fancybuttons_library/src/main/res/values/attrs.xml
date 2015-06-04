@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="FancyButtonsAttrs">
-        <attr name="defaultColor" format="color"  />
-        <attr name="text" format="string"  />
+        <attr name="fb_defaultColor" format="color"  />
+        <attr name="fb_text" format="string"  />
 
-        <attr name="textColor" format="color"  />
-        <attr name="iconColor" format="color"  />
+        <attr name="fb_textColor" format="color"  />
+        <attr name="fb_iconColor" format="color"  />
 
-        <attr name="textFont" format="string"  />
-        <attr name="iconFont" format="string"  />
+        <attr name="fb_textFont" format="string"  />
+        <attr name="fb_iconFont" format="string"  />
 
-        <attr name="textSize" format="dimension"  />
-        <attr name="iconResource" format="integer"  />
-        <attr name="fontIconResource" format="string"  />
-        <attr name="fontIconSize" format="dimension"  />
-        <attr name="iconPosition" format="enum">
+        <attr name="fb_textSize" format="dimension"  />
+        <attr name="fb_iconResource" format="integer"  />
+        <attr name="fb_fontIconResource" format="string"  />
+        <attr name="fb_fontIconSize" format="dimension"  />
+        <attr name="fb_iconPosition" format="enum">
             <enum name="left" value="1" />
             <enum name="right" value="2" />
             <enum name="top" value="3" />
             <enum name="bottom" value="4" />
         </attr>
 
-        <attr name="textPosition" format="enum">
+        <attr name="fb_textPosition" format="enum">
             <enum name="left" value="1" />
             <enum name="right" value="2" />
             <enum name="top" value="3" />
             <enum name="bottom" value="4" />
         </attr>
 
-        <attr name="textGravity" format="enum">
+        <attr name="fb_textGravity" format="enum">
             <enum name="top" value="0x30" />
             <enum name="bottom" value="0x50" />
             <enum name="left" value="0x03" />
@@ -45,17 +45,17 @@
             <enum name="end" value="0x00800005" />
         </attr>
 
-        <attr name="iconPaddingLeft" format="dimension" />
-        <attr name="iconPaddingRight" format="dimension" />
-        <attr name="iconPaddingTop" format="dimension" />
-        <attr name="iconPaddingBottom" format="dimension" />
+        <attr name="fb_iconPaddingLeft" format="dimension" />
+        <attr name="fb_iconPaddingRight" format="dimension" />
+        <attr name="fb_iconPaddingTop" format="dimension" />
+        <attr name="fb_iconPaddingBottom" format="dimension" />
 
-        <attr name="borderColor" format="color" />
-        <attr name="borderWidth" format="dimension"/>
-        <attr name="focusColor" format="color" />
-        <attr name="radius" format="dimension" />
+        <attr name="fb_borderColor" format="color" />
+        <attr name="fb_borderWidth" format="dimension"/>
+        <attr name="fb_focusColor" format="color" />
+        <attr name="fb_radius" format="dimension" />
 
-        <attr name="ghost" format="boolean"></attr>
+        <attr name="fb_ghost" format="boolean"></attr>
     </declare-styleable>
 
 </resources> 
