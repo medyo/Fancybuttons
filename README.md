@@ -26,7 +26,7 @@
 
 ### Including in your project : Maven Central
 
-	compile 'com.github.medyo:fancybuttons:1.2@aar'
+	compile 'com.github.medyo:fancybuttons:1.3@aar'
 
 ### Usage
 
