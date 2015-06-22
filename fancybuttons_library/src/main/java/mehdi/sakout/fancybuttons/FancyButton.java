@@ -8,6 +8,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -649,6 +650,41 @@ public class FancyButton  extends LinearLayout{
             this.setupBackground();
         }
 
+    }
+
+    /**
+     * Return Text of the button
+     * @return Text
+     */
+    public CharSequence getText(){
+        if (mTextView != null)
+            return mTextView.getText();
+        else
+            return "";
+    }
+
+    /**
+     * Return TextView Object of the FancyButton
+     * @return TextView Object
+     */
+    public TextView getTextViewObject(){
+        return mTextView;
+    }
+
+    /**
+     * Return Icon Font of the FancyButton
+     * @return TextView Object
+     */
+    public TextView getIconFontObject(){
+        return mFontIconView;
+    }
+
+    /**
+     * Return Icon of the FancyButton
+     * @return ImageView Object
+     */
+    public ImageView getIconImageObject(){
+        return mIconView;
     }
 
 }
