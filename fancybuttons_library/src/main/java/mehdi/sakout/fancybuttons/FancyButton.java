@@ -1,6 +1,5 @@
 package mehdi.sakout.fancybuttons;
 
-import java.util.ArrayList;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -9,6 +8,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -16,8 +16,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TableLayout;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 @SuppressWarnings("unused")
 public class FancyButton  extends LinearLayout{
@@ -179,7 +180,7 @@ public class FancyButton  extends LinearLayout{
             textView.setTextColor(mDefaultTextColor);
             textView.setTextSize(mDefaultTextSize);
 
-            textView.setLayoutParams(new TableLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT, 1f));
+            textView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
             if (!isInEditMode() && mTextTypeFace!=null) {
                 textView.setTypeface(mTextTypeFace);
             }
@@ -198,7 +199,7 @@ public class FancyButton  extends LinearLayout{
             TextView fontIconView = new TextView(mContext);
             fontIconView.setTextColor(mDefaultIconColor);
 
-            LayoutParams iconTextViewParams = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT,1f);
+            LayoutParams iconTextViewParams = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
             iconTextViewParams.rightMargin = mIconPaddingRight;
             iconTextViewParams.leftMargin = mIconPaddingLeft;
             iconTextViewParams.topMargin = mIconPaddingTop;
@@ -404,7 +405,7 @@ public class FancyButton  extends LinearLayout{
         }
         LayoutParams containerParams = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
         this.setLayoutParams(containerParams);
-        this.setGravity(Gravity.CENTER_VERTICAL);
+        this.setGravity(Gravity.CENTER);
         this.setClickable(true);
         this.setFocusable(true);
         if(mIconResource==null && mFontIcon==null && getPaddingLeft()==0 && getPaddingRight()==0 && getPaddingTop()==0 && getPaddingBottom()==0){
@@ -649,6 +650,41 @@ public class FancyButton  extends LinearLayout{
             this.setupBackground();
         }
 
+    }
+
+    /**
+     * Return Text of the button
+     * @return Text
+     */
+    public CharSequence getText(){
+        if (mTextView != null)
+            return mTextView.getText();
+        else
+            return "";
+    }
+
+    /**
+     * Return TextView Object of the FancyButton
+     * @return TextView Object
+     */
+    public TextView getTextViewObject(){
+        return mTextView;
+    }
+
+    /**
+     * Return Icon Font of the FancyButton
+     * @return TextView Object
+     */
+    public TextView getIconFontObject(){
+        return mFontIconView;
+    }
+
+    /**
+     * Return Icon of the FancyButton
+     * @return ImageView Object
+     */
+    public ImageView getIconImageObject(){
+        return mIconView;
     }
 
 }

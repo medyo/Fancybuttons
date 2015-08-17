@@ -26,7 +26,7 @@
 
 ### Including in your project : Maven Central
 
-	compile 'com.github.medyo:fancybuttons:1.3@aar'
+	compile 'com.github.medyo:fancybuttons:1.4@aar'
 
 ### Usage
 
@@ -65,6 +65,15 @@
 | fancy:fb_iconPaddingTop | setIconPadding(int,int,int,int)      |    Icon Padding|
 | fancy:fb_iconPaddingBottom | setIconPadding(int,int,int,int)      |    Icon Padding|
 | fancy:fb_ghost | setGhost(boolean)      |    Ghost (Hollow)|
+
+####  Supported Getters
+
+| Function        | Description  |
+| ------------- |:-------------:| -----:|
+| getText() | Returns Text Value of the button|
+| getTextViewObject() | Returns TextView Object|
+| getIconFontObject() | Returns icon defined by fb_fontIconResource|
+| getIconImageObject() | Returns icon defined by fb_iconResource |
 
 #### Sample
 
