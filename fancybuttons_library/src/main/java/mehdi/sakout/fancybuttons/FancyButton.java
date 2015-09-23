@@ -32,13 +32,13 @@ public class FancyButton  extends LinearLayout{
     private int mDefaultTextColor 				= Color.WHITE;
     private int mDefaultIconColor               = Color.WHITE;
     private int mTextPosition 					= 1;
-    private int mDefaultTextSize 				= FancyButtonUtils.convertDpToPx(getContext(), 15);
+    private int mDefaultTextSize 				= Utils.DptoPx(getContext(), 15);
     private int mDefaultTextGravity             = 0x11; // Gravity.CENTER
     private String mText 						= null;
 
     // # Icon Attributes
     private Drawable mIconResource 				= null;
-    private int  mFontIconSize 					= FancyButtonUtils.convertDpToPx(getContext(), 15);
+    private int  mFontIconSize 					= Utils.DptoPx(getContext(), 15);
     private String mFontIcon 					= null;
     private int mIconPosition 					= 1;
 
@@ -176,7 +176,7 @@ public class FancyButton  extends LinearLayout{
             textView.setText(mText);
             textView.setGravity(mDefaultTextGravity);
             textView.setTextColor(mDefaultTextColor);
-            textView.setTextSize(FancyButtonUtils.convertPxToDp(getContext(), mDefaultTextSize));
+            textView.setTextSize(Utils.PxToDp(getContext(), mDefaultTextSize));
 
             textView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
             if (!isInEditMode() && mTextTypeFace!=null) {
@@ -221,11 +221,11 @@ public class FancyButton  extends LinearLayout{
 
             fontIconView.setLayoutParams(iconTextViewParams);
             if(!isInEditMode()){
-                fontIconView.setTextSize(FancyButtonUtils.convertPxToDp(getContext(), mFontIconSize));
+                fontIconView.setTextSize(Utils.PxToDp(getContext(), mFontIconSize));
                 fontIconView.setText(mFontIcon);
                 fontIconView.setTypeface(mIconTypeFace);
             }else{
-                fontIconView.setTextSize(FancyButtonUtils.convertPxToDp(getContext(), mFontIconSize));
+                fontIconView.setTextSize(Utils.PxToDp(getContext(), mFontIconSize));
                 fontIconView.setText("O");
             }
             return fontIconView;
