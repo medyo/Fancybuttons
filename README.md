@@ -1,6 +1,6 @@
 # FancyButtons
 
-![FancyButtons Android](https://raw.github.com/medyo/fancybuttons/master/screenshots/fancy.png)![FancyButtons Android](/screenshots/fancy2.png)
+![FancyButtons Android](/screenshots/fancy.png)![FancyButtons Android](/screenshots/fancy2.png)![FancyButtons Android](/screenshots/fancy3.png)
 
 #### I always found some difficulties to make great Android buttons, since i need to override everything or make lot of drawables files to handle focus, pressed and normal state. For that reason, i made Fancy Buttons, to make this task much easier.
 
@@ -82,36 +82,38 @@
 ![FancyButton Spotify](https://raw.github.com/medyo/fancybuttons/master/screenshots/spotify-button.png)  
 
 	<mehdi.sakout.fancybuttons.FancyButton
-	android:id="@+id/btn_spotify"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:paddingBottom="10dp"
-	android:paddingLeft="20dp"
-	android:paddingRight="20dp"
-	android:paddingTop="10dp"
-	fancy:fb_borderColor="#FFFFFF"
-	fancy:fb_borderWidth="1dp"
-	fancy:fb_defaultColor="#7ab800"
-	fancy:fb_focusColor="#9bd823"
-	fancy:fb_fontIconResource="&#xf04b;"
-	fancy:fb_iconPosition="left"
-	fancy:fb_radius="30dp"
-	fancy:fb_text="SHUFFLE PLAY"
-	fancy:fb_textColor="#FFFFFF" />
+		android:id="@+id/btn_spotify"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:paddingBottom="10dp"
+		android:paddingLeft="20dp"
+		android:paddingRight="20dp"
+		android:paddingTop="10dp"
+		fancy:fb_borderColor="#FFFFFF"
+		fancy:fb_borderWidth="1dp"
+		fancy:fb_defaultColor="#7ab800"
+		fancy:fb_focusColor="#9bd823"
+		fancy:fb_fontIconResource="&#xf04b;"
+		fancy:fb_iconPosition="left"
+		fancy:fb_radius="30dp"
+		fancy:fb_text="SHUFFLE PLAY"
+		fancy:fb_textColor="#FFFFFF" />
 
 **2 - Facebook Button**
 
 ![FancyButton Facebook](https://raw.github.com/medyo/fancybuttons/master/screenshots/facebook-button.png)  
 
     FancyButton facebookLoginBtn = new FancyButton(this);
-    facebookLoginBtn.setText("Login with Facebook");
-    facebookLoginBtn.setBackgroundColor(Color.parseColor("#3b5998"));
-    facebookLoginBtn.setFocusBackgroundColor(Color.parseColor("#5474b8"));
-    facebookLoginBtn.setTextSize(17);
-    facebookLoginBtn.setRadius(5);
-    facebookLoginBtn.setIconResource("\uf082");
-    facebookLoginBtn.setIconPosition(FancyButton.POSITION_LEFT);
-    facebookLoginBtn.setFontIconSize(30);
+	facebookLoginBtn.setText("Login with Facebook");
+	facebookLoginBtn.setBackgroundColor(Color.parseColor("#3b5998"));
+	facebookLoginBtn.setFocusBackgroundColor(Color.parseColor("#5474b8"));
+	facebookLoginBtn.setTextSize(17);
+	facebookLoginBtn.setRadius(Utils.DptoPx(this, 3));
+	facebookLoginBtn.setPadding(Utils.DptoPx(this, 15), Utils.DptoPx(this, 15), Utils.DptoPx(this, 15), Utils.DptoPx(this, 15));
+	facebookLoginBtn.setIconResource("\uf082");
+	facebookLoginBtn.setIconPosition(FancyButton.POSITION_LEFT);
+	facebookLoginBtn.setIconPadding(0, 0, 20, 0);
+	facebookLoginBtn.setFontIconSize(30);
 
 See the [example project](https://github.com/medyo/fancybuttons/tree/master/samples/src/main/java/mehdi/sakout/fancybuttons/samples) for more samples
 
