@@ -131,6 +131,10 @@ Fancybuttons is delivered with :
 **How to add new fonts ?**  
 Just Paste your font inside `assets/fonts/` folder for Text fonts or inside `assets/iconfonts/` for icon fonts eg : entypo
 
+## Contributions
+Fancybuttons needs you to build the missing features :
+* Supporting Circular buttons 
+* Supporting Lollipop Ripple effect
 
 ### Licence
 
