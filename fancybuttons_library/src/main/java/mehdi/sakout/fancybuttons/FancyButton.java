@@ -32,13 +32,13 @@ public class FancyButton  extends LinearLayout{
     private int mDefaultTextColor 				= Color.WHITE;
     private int mDefaultIconColor               = Color.WHITE;
     private int mTextPosition 					= 1;
-    private int mDefaultTextSize 				= Utils.DptoPx(getContext(), 15);
+    private int mDefaultTextSize 				= Utils.SptoPx(getContext(), 15);
     private int mDefaultTextGravity             = 0x11; // Gravity.CENTER
     private String mText 						= null;
 
     // # Icon Attributes
     private Drawable mIconResource 				= null;
-    private int  mFontIconSize 					= Utils.DptoPx(getContext(), 15);
+    private int  mFontIconSize 					= Utils.SptoPx(getContext(), 15);
     private String mFontIcon 					= null;
     private int mIconPosition 					= 1;
 
@@ -68,7 +68,7 @@ public class FancyButton  extends LinearLayout{
     private String mDefaultTextFont = "robotoregular.ttf";
 
     private ImageView mIconView;
-    private  TextView mFontIconView;
+    private TextView mFontIconView;
     private TextView mTextView;
 
     private boolean mGhost = false ; // Default is a solid button !
@@ -93,7 +93,7 @@ public class FancyButton  extends LinearLayout{
      * @param attrs : Attributes Array
      */
     public FancyButton(Context context, AttributeSet attrs){
-        super(context,attrs);
+        super(context, attrs);
         this.mContext = context;
 
         TypedArray attrsArray 	= context.obtainStyledAttributes(attrs,R.styleable.FancyButtonsAttrs, 0, 0);
@@ -176,7 +176,7 @@ public class FancyButton  extends LinearLayout{
             textView.setText(mText);
             textView.setGravity(mDefaultTextGravity);
             textView.setTextColor(mDefaultTextColor);
-            textView.setTextSize(Utils.PxToDp(getContext(), mDefaultTextSize));
+            textView.setTextSize(Utils.PxToSp(getContext(), mDefaultTextSize));
 
             textView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
             if (!isInEditMode() && mTextTypeFace!=null) {
@@ -221,11 +221,11 @@ public class FancyButton  extends LinearLayout{
 
             fontIconView.setLayoutParams(iconTextViewParams);
             if(!isInEditMode()){
-                fontIconView.setTextSize(Utils.PxToDp(getContext(), mFontIconSize));
+                fontIconView.setTextSize(Utils.PxToSp(getContext(), mFontIconSize));
                 fontIconView.setText(mFontIcon);
                 fontIconView.setTypeface(mIconTypeFace);
             }else{
-                fontIconView.setTextSize(Utils.PxToDp(getContext(), mFontIconSize));
+                fontIconView.setTextSize(Utils.PxToSp(getContext(), mFontIconSize));
                 fontIconView.setText("O");
             }
             return fontIconView;
@@ -336,12 +336,7 @@ public class FancyButton  extends LinearLayout{
             }else{
                 mTextTypeFace= Typeface.createFromAsset(mContext.getAssets(), String.format("fonts/%s",mDefaultTextFont));
             }
-
-
         }
-
-
-
     }
     @SuppressLint("NewApi")
     private void setupBackground(){
@@ -383,7 +378,7 @@ public class FancyButton  extends LinearLayout{
             states.addState(new int[] { android.R.attr.state_pressed }, drawable2);
             states.addState(new int[] { android.R.attr.state_focused }, drawable2);
         }
-        states.addState(new int[] {}, drawable);
+        states.addState(new int[]{}, drawable);
 
         if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
             this.setBackgroundDrawable(states);
@@ -471,11 +466,11 @@ public class FancyButton  extends LinearLayout{
     }
 
     /**
-     * Set the size of Text
+     * Set the size of Text in sp
      * @param textSize : Text Size
      */
     public void setTextSize(int textSize){
-        this.mDefaultTextSize = textSize;
+        this.mDefaultTextSize = Utils.SptoPx(getContext(), textSize);
         if(mTextView != null)
             mTextView.setTextSize(textSize);
     }
@@ -541,11 +536,11 @@ public class FancyButton  extends LinearLayout{
     }
 
     /**
-     * Set Icon size of the button (for only font icons)
+     * Set Icon size of the button (for only font icons) in sp
      * @param iconSize : Icon Size
      */
     public void setFontIconSize(int iconSize){
-        this.mFontIconSize = iconSize;
+        this.mFontIconSize = Utils.SptoPx(getContext(), iconSize);
         if(mFontIconView!=null)
             mFontIconView.setTextSize(iconSize);
     }
