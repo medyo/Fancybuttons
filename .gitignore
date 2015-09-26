@@ -1,6 +1,7 @@
 #built application files
 *.apk
 *.ap_
+!resources/fancybuttons_samples.apk
 
 # files for the dex VM
 *.dex

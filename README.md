@@ -1,13 +1,15 @@
 # FancyButtons
 
-![FancyButtons Android](/screenshots/fancy.png)![FancyButtons Android](/screenshots/fancy2.png)![FancyButtons Android](/screenshots/fancy3.png)
+![FancyButtons Android](/resources/fancy.png)![FancyButtons Android](/resources/fancy2.png)![FancyButtons Android](/resources/fancy3.png)
 
-#### I always found some difficulties to make great Android buttons, since i need to override everything or make lot of drawables files to handle focus, pressed and normal state. For that reason, i made Fancy Buttons, to make this task much easier.
+#### I've always found some difficulties to make great Android buttons, since I need to override everything or make lot of drawables files to handle focus, pressed and normal states. For that reason, I made Fancy Buttons, to make this redundant task much easier.
 
 ## Overview
 **FancyButtons**, helps you to easily create fancy buttons without the need of drawable files.
 
-![FancyButtons Android](https://raw.github.com/medyo/fancybuttons/master/screenshots/no-drawables.png)
+![FancyButtons Android](https://raw.github.com/medyo/fancybuttons/master/resources/no-drawables.png)
+
+### Demo Application : [Download APK](https://raw.github.com/medyo/fancybuttons/master/resourcesfancybuttons_samples.apk)
 
 ## Features
 
@@ -23,6 +25,7 @@
     * bottom  
 * Icon Size
 * Icon Padding
+
 
 ### Including in your project : Maven Central
 
@@ -79,7 +82,7 @@
 
 **1 - Spotify Button**  
 
-![FancyButton Spotify](https://raw.github.com/medyo/fancybuttons/master/screenshots/spotify-button.png)  
+![FancyButton Spotify](https://raw.github.com/medyo/fancybuttons/master/resources/spotify-button.png)  
 
 	<mehdi.sakout.fancybuttons.FancyButton
 		android:id="@+id/btn_spotify"
@@ -101,7 +104,7 @@
 
 **2 - Facebook Button**
 
-![FancyButton Facebook](https://raw.github.com/medyo/fancybuttons/master/screenshots/facebook-button.png)  
+![FancyButton Facebook](https://raw.github.com/medyo/fancybuttons/master/resources/facebook-button.png)  
 
 	FancyButton facebookLoginBtn = new FancyButton(this);
     facebookLoginBtn.setText("Login with Facebook");
