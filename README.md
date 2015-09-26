@@ -14,7 +14,7 @@
 * Border (stroke, radius, color)
 * Background (normal, focus)
 * Icon (Drawable, font icon)
-	* FontAwsome
+	* FontAwesome
 	* Custom font
 * Icon (Position, size)
     * right
@@ -26,7 +26,7 @@
 
 ### Including in your project : Maven Central
 
-	compile 'com.github.medyo:fancybuttons:1.4@aar'
+	compile 'com.github.medyo:fancybuttons:1.5@aar'
 
 ### Usage
 
@@ -103,17 +103,15 @@
 
 ![FancyButton Facebook](https://raw.github.com/medyo/fancybuttons/master/screenshots/facebook-button.png)  
 
-    FancyButton facebookLoginBtn = new FancyButton(this);
-	facebookLoginBtn.setText("Login with Facebook");
-	facebookLoginBtn.setBackgroundColor(Color.parseColor("#3b5998"));
-	facebookLoginBtn.setFocusBackgroundColor(Color.parseColor("#5474b8"));
-	facebookLoginBtn.setTextSize(17);
-	facebookLoginBtn.setRadius(Utils.DptoPx(this, 3));
-	facebookLoginBtn.setPadding(Utils.DptoPx(this, 15), Utils.DptoPx(this, 15), Utils.DptoPx(this, 15), Utils.DptoPx(this, 15));
-	facebookLoginBtn.setIconResource("\uf082");
-	facebookLoginBtn.setIconPosition(FancyButton.POSITION_LEFT);
-	facebookLoginBtn.setIconPadding(0, 0, 20, 0);
-	facebookLoginBtn.setFontIconSize(30);
+	FancyButton facebookLoginBtn = new FancyButton(this);
+    facebookLoginBtn.setText("Login with Facebook");
+    facebookLoginBtn.setBackgroundColor(Color.parseColor("#3b5998"));
+    facebookLoginBtn.setFocusBackgroundColor(Color.parseColor("#5474b8"));
+    facebookLoginBtn.setTextSize(17);
+    facebookLoginBtn.setRadius(5);
+    facebookLoginBtn.setIconResource("\uf082");
+    facebookLoginBtn.setIconPosition(FancyButton.POSITION_LEFT);
+    facebookLoginBtn.setFontIconSize(30);
 
 See the [example project](https://github.com/medyo/fancybuttons/tree/master/samples/src/main/java/mehdi/sakout/fancybuttons/samples) for more samples
 
