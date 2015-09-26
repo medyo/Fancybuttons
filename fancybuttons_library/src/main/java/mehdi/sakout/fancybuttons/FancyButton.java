@@ -32,13 +32,13 @@ public class FancyButton  extends LinearLayout{
     private int mDefaultTextColor 				= Color.WHITE;
     private int mDefaultIconColor               = Color.WHITE;
     private int mTextPosition 					= 1;
-    private int mDefaultTextSize 				= Utils.SptoPx(getContext(), 15);
+    private int mDefaultTextSize 				= Utils.spToPx(getContext(), 15);
     private int mDefaultTextGravity             = 0x11; // Gravity.CENTER
     private String mText 						= null;
 
     // # Icon Attributes
     private Drawable mIconResource 				= null;
-    private int  mFontIconSize 					= Utils.SptoPx(getContext(), 15);
+    private int  mFontIconSize 					= Utils.spToPx(getContext(), 15);
     private String mFontIcon 					= null;
     private int mIconPosition 					= 1;
 
@@ -176,7 +176,7 @@ public class FancyButton  extends LinearLayout{
             textView.setText(mText);
             textView.setGravity(mDefaultTextGravity);
             textView.setTextColor(mDefaultTextColor);
-            textView.setTextSize(Utils.PxToSp(getContext(), mDefaultTextSize));
+            textView.setTextSize(Utils.pxToSp(getContext(), mDefaultTextSize));
 
             textView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
             if (!isInEditMode() && mTextTypeFace!=null) {
@@ -221,11 +221,11 @@ public class FancyButton  extends LinearLayout{
 
             fontIconView.setLayoutParams(iconTextViewParams);
             if(!isInEditMode()){
-                fontIconView.setTextSize(Utils.PxToSp(getContext(), mFontIconSize));
+                fontIconView.setTextSize(Utils.pxToSp(getContext(), mFontIconSize));
                 fontIconView.setText(mFontIcon);
                 fontIconView.setTypeface(mIconTypeFace);
             }else{
-                fontIconView.setTextSize(Utils.PxToSp(getContext(), mFontIconSize));
+                fontIconView.setTextSize(Utils.pxToSp(getContext(), mFontIconSize));
                 fontIconView.setText("O");
             }
             return fontIconView;
@@ -470,7 +470,7 @@ public class FancyButton  extends LinearLayout{
      * @param textSize : Text Size
      */
     public void setTextSize(int textSize){
-        this.mDefaultTextSize = Utils.SptoPx(getContext(), textSize);
+        this.mDefaultTextSize = Utils.spToPx(getContext(), textSize);
         if(mTextView != null)
             mTextView.setTextSize(textSize);
     }
@@ -540,7 +540,7 @@ public class FancyButton  extends LinearLayout{
      * @param iconSize : Icon Size
      */
     public void setFontIconSize(int iconSize){
-        this.mFontIconSize = Utils.SptoPx(getContext(), iconSize);
+        this.mFontIconSize = Utils.spToPx(getContext(), iconSize);
         if(mFontIconView!=null)
             mFontIconView.setTextSize(iconSize);
     }
