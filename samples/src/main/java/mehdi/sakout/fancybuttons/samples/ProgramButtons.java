@@ -1,6 +1,7 @@
 package mehdi.sakout.fancybuttons.samples;
 
 import android.graphics.Color;
+import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -9,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import mehdi.sakout.fancybuttons.FancyButton;
-import mehdi.sakout.fancybuttons.Utils;
 
 
 public class ProgramButtons extends AppCompatActivity {
@@ -25,11 +25,9 @@ public class ProgramButtons extends AppCompatActivity {
         facebookLoginBtn.setBackgroundColor(Color.parseColor("#3b5998"));
         facebookLoginBtn.setFocusBackgroundColor(Color.parseColor("#5474b8"));
         facebookLoginBtn.setTextSize(17);
-        facebookLoginBtn.setRadius(Utils.DptoPx(this, 3));
-        facebookLoginBtn.setPadding(Utils.DptoPx(this, 15), Utils.DptoPx(this, 15), Utils.DptoPx(this, 15), Utils.DptoPx(this, 15));
+        facebookLoginBtn.setRadius(5);
         facebookLoginBtn.setIconResource("\uf082");
         facebookLoginBtn.setIconPosition(FancyButton.POSITION_LEFT);
-        facebookLoginBtn.setIconPadding(0, 0, 20, 0);
         facebookLoginBtn.setFontIconSize(30);
 
         FancyButton foursquareBtn = new FancyButton(this);
@@ -50,14 +48,14 @@ public class ProgramButtons extends AppCompatActivity {
         installBtn.setRadius(5);
         installBtn.setIconPadding(0,30,0,0);
 
-        FancyButton soundcloudBtn = new FancyButton(this);
-        soundcloudBtn.setText("Repost the song");
-        soundcloudBtn.setIconResource(R.drawable.soundcloud);
-        soundcloudBtn.setBackgroundColor(Color.parseColor("#ff8800"));
-        soundcloudBtn.setFocusBackgroundColor(Color.parseColor("#ffa43c"));
-        soundcloudBtn.setTextSize(20);
-        soundcloudBtn.setCustomTextFont("robotothin.ttf");
-        soundcloudBtn.setIconPadding(10, 0, 10, 0);
+        FancyButton signupBtn = new FancyButton(this);
+        signupBtn.setText("Repost the song");
+        signupBtn.setIconResource(R.drawable.soundcloud);
+        signupBtn.setBackgroundColor(Color.parseColor("#ff8800"));
+        signupBtn.setFocusBackgroundColor(Color.parseColor("#ffa43c"));
+        signupBtn.setTextSize(20);
+        signupBtn.setCustomTextFont("robotothin.ttf");
+        signupBtn.setIconPadding(10,0,10,0);
 
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutParams.setMargins(0,0,0,10);
@@ -66,14 +64,14 @@ public class ProgramButtons extends AppCompatActivity {
         container.addView(facebookLoginBtn,layoutParams);
         container.addView(foursquareBtn,layoutParams);
         container.addView(installBtn,layoutParams);
-        container.addView(soundcloudBtn,layoutParams);
+        container.addView(signupBtn,layoutParams);
 
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.program_buttons, menu);
         return true;
