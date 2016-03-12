@@ -1,22 +1,24 @@
 package mehdi.sakout.fancybuttons;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.RippleDrawable;
 import android.graphics.drawable.StateListDrawable;
+import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 
 @SuppressWarnings("unused")
@@ -64,8 +66,8 @@ public class FancyButton  extends LinearLayout{
     public static final int POSITION_TOP  		= 3;
     public static final int POSITION_BOTTOM  	= 4;
 
-    private String mDefaultIconFont = "fontawesome.ttf";
-    private String mDefaultTextFont = "robotoregular.ttf";
+    private String mDefaultIconFont = "fonts/fontawesome.ttf";
+    private String mDefaultTextFont = "fonts/robotoregular.ttf";
 
     private ImageView mIconView;
     private TextView mFontIconView;
@@ -81,11 +83,12 @@ public class FancyButton  extends LinearLayout{
         super(context);
         this.mContext   = context;
 
-        mTextTypeFace   = Typeface.createFromAsset(mContext.getAssets(), String.format("fonts/%s",mDefaultTextFont));
-        mIconTypeFace   = Typeface.createFromAsset(mContext.getAssets(), String.format("iconfonts/%s",mDefaultIconFont));
-
+        mTextTypeFace   = Typeface.createFromAsset(mContext.getAssets(), String.format("%s",mDefaultTextFont));
+        mIconTypeFace   = Typeface.createFromAsset(mContext.getAssets(), String.format("%s",mDefaultIconFont));
         initializeFancyButton();
     }
+
+
 
     /**
      * Default constructor called from Layouts
@@ -97,7 +100,7 @@ public class FancyButton  extends LinearLayout{
         this.mContext = context;
 
         TypedArray attrsArray 	= context.obtainStyledAttributes(attrs,R.styleable.FancyButtonsAttrs, 0, 0);
-        initAttributsArray(attrsArray);
+        initAttributesArray(attrsArray);
         attrsArray.recycle();
 
         initializeFancyButton();
@@ -266,7 +269,7 @@ public class FancyButton  extends LinearLayout{
      * Initialize Attributes arrays
      * @param attrsArray : Attributes array
      */
-    private void initAttributsArray(TypedArray attrsArray){
+    private void initAttributesArray(TypedArray attrsArray){
 
         mDefaultBackgroundColor 		= attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_defaultColor,mDefaultBackgroundColor);
         mFocusBackgroundColor 			= attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_focusColor,mFocusBackgroundColor);
@@ -314,78 +317,89 @@ public class FancyButton  extends LinearLayout{
 
         if(!isInEditMode()){
             if(iconFontFamily!=null){
-                try{
-                    mIconTypeFace = Typeface.createFromAsset(mContext.getAssets(), String.format("iconfonts/%s",iconFontFamily));
-                }catch(Exception e){
-                    Log.e("Fancy",e.getMessage());
-                    mIconTypeFace= Typeface.createFromAsset(mContext.getAssets(), String.format("iconfonts/%s",mDefaultIconFont));
-                }
-
+                mIconTypeFace = Utils.findFont(mContext, iconFontFamily, mDefaultIconFont);
             }else{
-                mIconTypeFace= Typeface.createFromAsset(mContext.getAssets(), String.format("iconfonts/%s",mDefaultIconFont));
+                mIconTypeFace = Typeface.createFromAsset(mContext.getAssets(), String.format("%s",mDefaultIconFont));
             }
 
             if(textFontFamily!=null){
-                try{
-                    mTextTypeFace = Typeface.createFromAsset(mContext.getAssets(), String.format("fonts/%s",textFontFamily));
-                }
-                catch(Exception e){
-                    mTextTypeFace= Typeface.createFromAsset(mContext.getAssets(), String.format("fonts/%s",mDefaultTextFont));
-                }
-
+                mTextTypeFace = Utils.findFont(mContext, textFontFamily, mDefaultTextFont);
             }else{
-                mTextTypeFace= Typeface.createFromAsset(mContext.getAssets(), String.format("fonts/%s",mDefaultTextFont));
+                mTextTypeFace= Typeface.createFromAsset(mContext.getAssets(), String.format("%s",mDefaultTextFont));
             }
         }
     }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private Drawable getRippleDrawable(Drawable contentDrawable){
+        return new RippleDrawable(ColorStateList.valueOf(mFocusBackgroundColor), contentDrawable, null);
+    }
+
+
     @SuppressLint("NewApi")
     private void setupBackground(){
+
 
         // Default Drawable
         GradientDrawable drawable = new GradientDrawable();
         drawable.setCornerRadius(mRadius);
         if (mGhost){
             drawable.setColor(getResources().getColor(android.R.color.transparent)); // Hollow Background
-        }
-        else {
+        } else {
             drawable.setColor(mDefaultBackgroundColor);
         }
+
+        // Handle Border
         if (mBorderColor != 0) {
             drawable.setStroke(mBorderWidth, mBorderColor);
         }
 
-        // Focus/Pressed Drawable
-        GradientDrawable drawable2 = new GradientDrawable();
-        drawable2.setCornerRadius(mRadius);
-        if (mGhost){
-            drawable2.setColor(getResources().getColor(android.R.color.transparent)); // No focus color
-        }
-        else {
-            drawable2.setColor(mFocusBackgroundColor);
-        }
-        if (mBorderColor != 0) {
-            if (mGhost) {
-                drawable2.setStroke(mBorderWidth, mFocusBackgroundColor); // Border is the main part of button now
-            }
-            else {
-                drawable2.setStroke(mBorderWidth, mBorderColor);
-            }
-        }
 
-        StateListDrawable states = new StateListDrawable();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
-        if(mFocusBackgroundColor!=0){
-            states.addState(new int[] { android.R.attr.state_pressed }, drawable2);
-            states.addState(new int[] { android.R.attr.state_focused }, drawable2);
-        }
-        states.addState(new int[]{}, drawable);
+            this.setBackground(getRippleDrawable(drawable));
 
-        if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-            this.setBackgroundDrawable(states);
         } else {
-            this.setBackground(states);
+
+            StateListDrawable states = new StateListDrawable();
+
+            // Focus/Pressed Drawable
+            GradientDrawable drawable2 = new GradientDrawable();
+            drawable2.setCornerRadius(mRadius);
+            if (mGhost){
+                drawable2.setColor(getResources().getColor(android.R.color.transparent)); // No focus color
+            } else {
+                drawable2.setColor(mFocusBackgroundColor);
+            }
+
+            // Handle Button Border
+            if (mBorderColor != 0) {
+                if (mGhost) {
+                    drawable2.setStroke(mBorderWidth, mFocusBackgroundColor); // Border is the main part of button now
+                }
+                else {
+                    drawable2.setStroke(mBorderWidth, mBorderColor);
+                }
+            }
+
+            if(mFocusBackgroundColor != 0){
+                states.addState(new int[] { android.R.attr.state_pressed }, drawable2);
+                states.addState(new int[] { android.R.attr.state_focused }, drawable2);
+            }
+            states.addState(new int[]{}, drawable);
+
+            if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+                this.setBackgroundDrawable(states);
+            } else {
+                this.setBackground(states);
+            }
+
         }
+
+
+
     }
+
 
     /**
      * Initialize button container
@@ -596,15 +610,10 @@ public class FancyButton  extends LinearLayout{
     /**
      * Set custom font for button Text
      * @param fontName : Font Name
-     * Place your text fonts in assets/fonts/
+     * Place your text fonts in assets
      */
     public void setCustomTextFont(String fontName){
-        try{
-            mTextTypeFace = Typeface.createFromAsset(mContext.getAssets(), String.format("fonts/%s",fontName));
-        }catch(Exception e){
-            Log.e("FancyButtons",e.getMessage());
-            mTextTypeFace= Typeface.createFromAsset(mContext.getAssets(), String.format("fonts/%s",mDefaultTextFont));
-        }
+        mTextTypeFace = Utils.findFont(mContext, fontName, mDefaultTextFont);
 
         if(mTextView==null)
             initializeFancyButton();
@@ -616,15 +625,11 @@ public class FancyButton  extends LinearLayout{
     /**
      * Set Custom font for button icon
      * @param fontName : Font Name
-     * Place your icon fonts in assets/iconfonts/
+     * Place your icon fonts in assets
      */
     public void setCustomIconFont(String fontName){
-        try{
-            mIconTypeFace = Typeface.createFromAsset(mContext.getAssets(), String.format("iconfonts/%s",fontName));
-        }catch(Exception e){
-            Log.e("FancyButtons",e.getMessage());
-            mIconTypeFace= Typeface.createFromAsset(mContext.getAssets(), String.format("iconfonts/%s",mDefaultIconFont));
-        }
+
+        mIconTypeFace = Utils.findFont(mContext, fontName, mDefaultIconFont);
 
         if(mFontIconView == null)
             initializeFancyButton();
