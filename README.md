@@ -1,8 +1,7 @@
 # FancyButtons
+[ ![Download](https://api.bintray.com/packages/medyo/maven/FancyButtons/images/download.svg) ](https://bintray.com/medyo/maven/FancyButtons/_latestVersion)
 
 ![FancyButtons Android](/resources/fancy.png)![FancyButtons Android](/resources/fancy2.png)![FancyButtons Android](/resources/fancy3.png)
-
-#### I've always found some difficulties to make great Android buttons, since I need to override everything or make lot of drawables files to handle focus, pressed and normal states. For that reason, I made Fancy Buttons, to make this redundant task much easier.
 
 ## Overview
 **FancyButtons**, helps you to easily create fancy buttons without the need of drawable files.
@@ -26,10 +25,14 @@
 * Icon Size
 * Icon Padding
 
+### Changelog
+- 1.6
+    - Add ripple effect
+    - Upgrade Font Awesome to 4.5.0
 
-### Including in your project : Maven Central
+### Installation
 
-	compile 'com.github.medyo:fancybuttons:1.5@aar'
+	compile 'com.github.medyo:fancybuttons:1.6'
 
 ### Usage
 
@@ -134,8 +137,7 @@ Just Paste your font inside `assets/fonts/` folder for Text fonts or inside `ass
 
 ## Contributions
 Fancybuttons needs you to build the missing features :
-* Supporting Circular buttons 
-* Supporting Lollipop Ripple effect
+* Supporting Circular buttons
 
 ### Licence
 
