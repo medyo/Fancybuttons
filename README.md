@@ -1,5 +1,5 @@
 # FancyButtons
-[ ![Download](https://api.bintray.com/packages/medyo/maven/FancyButtons/images/download.svg) ](https://bintray.com/medyo/maven/FancyButtons/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/medyo/maven/fancybuttons/images/download.svg) ](https://bintray.com/medyo/maven/fancybuttons/_latestVersion)  
 
 ![FancyButtons Android](/resources/fancy.png)![FancyButtons Android](/resources/fancy2.png)![FancyButtons Android](/resources/fancy3.png)
 
