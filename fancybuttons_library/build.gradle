@@ -1,14 +1,4 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.novoda:bintray-release:0.3.4'
-    }
-}
-
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 23
@@ -18,7 +8,7 @@ android {
         minSdkVersion 8
         targetSdkVersion 23
         versionCode Integer.parseInt(VERSION_CODE)
-        versionName '1.6'
+        versionName VERSION_NAME
     }
     buildTypes {
         release {
@@ -32,11 +22,5 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
 
-publish {
-    userOrg = 'medyo'
-    groupId = 'com.github.medyo'
-    artifactId = 'fancybuttons'
-    publishVersion = '1.6'
-    desc = 'An Android library to easily create fancy buttons without the need of drawable files.'
-    website = 'https://github.com/medyo/fancybuttons'
-}
+archivesBaseName = 'fancybuttons'
+apply from: rootProject.file("bintrayUpload.gradle")
