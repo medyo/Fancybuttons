@@ -8,7 +8,7 @@
 
 ![FancyButtons Android](https://raw.github.com/medyo/fancybuttons/master/resources/no-drawables.png)
 
-### Demo Application : [Download APK](https://raw.github.com/medyo/fancybuttons/master/resourcesfancybuttons_samples.apk)
+### Demo Application : [Download APK](https://raw.github.com/medyo/fancybuttons/master/resources/fancybuttons_samples.apk)
 
 ## Features
 
