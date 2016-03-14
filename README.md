@@ -138,6 +138,7 @@ Just Paste your font inside `assets/fonts/` folder for Text fonts or inside `ass
 ## Contributions
 Fancybuttons needs you to build the missing features :
 * Supporting Circular buttons
+* Add elevation (Material Design)
 
 ### Licence
 
