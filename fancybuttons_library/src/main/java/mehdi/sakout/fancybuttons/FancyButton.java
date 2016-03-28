@@ -10,7 +10,9 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
+import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.StateListDrawable;
+import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -335,8 +337,8 @@ public class FancyButton  extends LinearLayout{
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    private Drawable getRippleDrawable(Drawable contentDrawable){
-        return new RippleDrawable(ColorStateList.valueOf(mFocusBackgroundColor), contentDrawable, null);
+    private Drawable getRippleDrawable(Drawable defaultDrawable, Drawable focusDrawable){
+        return new RippleDrawable(ColorStateList.valueOf(mFocusBackgroundColor), defaultDrawable, focusDrawable);
     }
 
 
@@ -345,23 +347,28 @@ public class FancyButton  extends LinearLayout{
 
 
         // Default Drawable
-        GradientDrawable drawable = new GradientDrawable();
-        drawable.setCornerRadius(mRadius);
+        GradientDrawable defaultDrawable = new GradientDrawable();
+        defaultDrawable.setCornerRadius(mRadius);
         if (mGhost){
-            drawable.setColor(getResources().getColor(android.R.color.transparent)); // Hollow Background
+            defaultDrawable.setColor(getResources().getColor(android.R.color.transparent)); // Hollow Background
         } else {
-            drawable.setColor(mDefaultBackgroundColor);
+            defaultDrawable.setColor(mDefaultBackgroundColor);
         }
+
+        //Focus Drawable
+        GradientDrawable focusDrawable = new GradientDrawable();
+        focusDrawable.setCornerRadius(mRadius);
+        focusDrawable.setColor(mFocusBackgroundColor);
 
         // Handle Border
         if (mBorderColor != 0) {
-            drawable.setStroke(mBorderWidth, mBorderColor);
+            defaultDrawable.setStroke(mBorderWidth, mBorderColor);
         }
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
-            this.setBackground(getRippleDrawable(drawable));
+            this.setBackground(getRippleDrawable(defaultDrawable, focusDrawable));
 
         } else {
 
@@ -390,7 +397,7 @@ public class FancyButton  extends LinearLayout{
                 states.addState(new int[] { android.R.attr.state_pressed }, drawable2);
                 states.addState(new int[] { android.R.attr.state_focused }, drawable2);
             }
-            states.addState(new int[]{}, drawable);
+            states.addState(new int[]{}, defaultDrawable);
 
             if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
                 this.setBackgroundDrawable(states);
