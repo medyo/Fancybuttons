@@ -55,6 +55,8 @@ public class FancyButton  extends LinearLayout{
 
     private int mRadius 						= 0;
 
+    private boolean mTextAllCaps                = false;
+
     private Typeface mTextTypeFace = null;
     private Typeface mIconTypeFace = null;
 
@@ -291,6 +293,8 @@ public class FancyButton  extends LinearLayout{
         mIconPaddingTop                 = (int)attrsArray.getDimension(R.styleable.FancyButtonsAttrs_fb_iconPaddingTop,mIconPaddingTop);
         mIconPaddingBottom              = (int)attrsArray.getDimension(R.styleable.FancyButtonsAttrs_fb_iconPaddingBottom,mIconPaddingBottom);
 
+        mTextAllCaps                    = attrsArray.getBoolean(R.styleable.FancyButtonsAttrs_fb_textAllCaps, false);
+
         mGhost = attrsArray.getBoolean(R.styleable.FancyButtonsAttrs_fb_ghost, mGhost);
 
         String text 					= attrsArray.getString(R.styleable.FancyButtonsAttrs_fb_text);
@@ -313,7 +317,7 @@ public class FancyButton  extends LinearLayout{
             mFontIcon = fontIcon;
 
         if(text!=null)
-            mText = text;
+            mText = mTextAllCaps ? text.toUpperCase():text;
 
         if(!isInEditMode()){
             if(iconFontFamily!=null){
@@ -426,11 +430,21 @@ public class FancyButton  extends LinearLayout{
      * @param text : Text
      */
     public void setText(String text){
+        text = mTextAllCaps ? text.toUpperCase() : text;
         this.mText = text;
         if(mTextView == null)
             initializeFancyButton();
         else
             mTextView.setText(text);
+    }
+
+    /** Set the capitalization of text
+     *
+     * @param textAllCaps : is text to be capitalized
+     */
+    public void setTextAllCaps(boolean textAllCaps){
+        this.mTextAllCaps = textAllCaps;
+        setText(mText);
     }
 
     /**

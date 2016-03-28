@@ -54,6 +54,7 @@
         <attr name="fb_borderWidth" format="dimension"/>
         <attr name="fb_focusColor" format="color" />
         <attr name="fb_radius" format="dimension" />
+        <attr name="fb_textAllCaps" format="boolean" />
 
         <attr name="fb_ghost" format="boolean"></attr>
     </declare-styleable>
