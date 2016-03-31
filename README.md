@@ -26,13 +26,17 @@
 * Icon Padding
 
 ### Changelog
+- 1.7
+    - Fix ripple effect when background is transparent
+    - Add capitalization of text
+    
 - 1.6
     - Add ripple effect
     - Upgrade Font Awesome to 4.5.0
 
 ### Installation
 
-	compile 'com.github.medyo:fancybuttons:1.6'
+	compile 'com.github.medyo:fancybuttons:1.7'
 
 ### Usage
 
