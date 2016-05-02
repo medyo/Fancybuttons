@@ -69,8 +69,8 @@ public class FancyButton  extends LinearLayout{
     public static final int POSITION_TOP  		= 3;
     public static final int POSITION_BOTTOM  	= 4;
 
-    private String mDefaultIconFont = "fonts/fontawesome.ttf";
-    private String mDefaultTextFont = "fonts/robotoregular.ttf";
+    private String mDefaultIconFont = "fontawesome.ttf";
+    private String mDefaultTextFont = "robotoregular.ttf";
 
     private ImageView mIconView;
     private TextView mFontIconView;
@@ -86,8 +86,8 @@ public class FancyButton  extends LinearLayout{
         super(context);
         this.mContext   = context;
 
-        mTextTypeFace   = Typeface.createFromAsset(mContext.getAssets(), String.format("%s",mDefaultTextFont));
-        mIconTypeFace   = Typeface.createFromAsset(mContext.getAssets(), String.format("%s",mDefaultIconFont));
+        mTextTypeFace   = Utils.findFont(mContext, mDefaultTextFont, null);
+        mIconTypeFace   = Utils.findFont(mContext, mDefaultIconFont, null);
         initializeFancyButton();
     }
 
@@ -324,13 +324,13 @@ public class FancyButton  extends LinearLayout{
             if(iconFontFamily!=null){
                 mIconTypeFace = Utils.findFont(mContext, iconFontFamily, mDefaultIconFont);
             }else{
-                mIconTypeFace = Typeface.createFromAsset(mContext.getAssets(), String.format("%s",mDefaultIconFont));
+                mIconTypeFace = Utils.findFont(mContext, mDefaultIconFont, null);
             }
 
             if(textFontFamily!=null){
                 mTextTypeFace = Utils.findFont(mContext, textFontFamily, mDefaultTextFont);
             }else{
-                mTextTypeFace= Typeface.createFromAsset(mContext.getAssets(), String.format("%s",mDefaultTextFont));
+                mTextTypeFace = Utils.findFont(mContext, mDefaultTextFont, null);
             }
         }
     }
@@ -543,10 +543,24 @@ public class FancyButton  extends LinearLayout{
 
     /**
      * Set an icon from resources to the button
-     * @param drawable : Drawable resource
+     * @param drawable : Int resource
      */
     public void setIconResource(int drawable){
         this.mIconResource = mContext.getResources().getDrawable(drawable);
+        if(mIconView == null || mFontIconView != null) {
+            mFontIconView= null;
+            initializeFancyButton();
+        }
+        else
+            mIconView.setImageDrawable(mIconResource);
+    }
+
+    /**
+     * Set a drawable to the button
+     * @param drawable : Drawable resource
+     */
+    public void setIconResource(Drawable drawable){
+        this.mIconResource = drawable;
         if(mIconView == null || mFontIconView != null) {
             mFontIconView= null;
             initializeFancyButton();
