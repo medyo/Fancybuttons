@@ -29,6 +29,11 @@
 * Icon Padding
 
 ### Changelog
+
+- 1.8
+    - Add setIconResource(Drawable)
+    - Cache fonts
+
 - 1.7
     - Fix ripple effect when background is transparent
     - Add capitalization of text
