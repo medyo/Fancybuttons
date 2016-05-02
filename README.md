@@ -36,7 +36,7 @@
 
 ### Installation
 
-	compile 'com.github.medyo:fancybuttons:1.7'
+	compile 'com.github.medyo:fancybuttons:1.8'
 
 ### Usage
 
