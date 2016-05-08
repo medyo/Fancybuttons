@@ -30,6 +30,9 @@
 
 ### Changelog
 
+- 1.8.1
+    - Fix Bug related to loading custom fonts
+
 - 1.8
     - Add setIconResource(Drawable)
     - Cache fonts
@@ -44,7 +47,7 @@
 
 ### Installation
 
-	compile 'com.github.medyo:fancybuttons:1.8'
+	compile 'com.github.medyo:fancybuttons:1.8.1'
 
 ### Usage
 
