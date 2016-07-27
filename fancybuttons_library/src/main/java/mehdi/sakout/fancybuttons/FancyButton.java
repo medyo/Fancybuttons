@@ -77,6 +77,7 @@ public class FancyButton  extends LinearLayout{
     private TextView mTextView;
 
     private boolean mGhost = false ; // Default is a solid button !
+    private boolean mUseSystemFont = false; // Default is using robotoregular.ttf
 
     /**
      * Default constructor
@@ -185,7 +186,7 @@ public class FancyButton  extends LinearLayout{
             textView.setTextSize(Utils.pxToSp(getContext(), mDefaultTextSize));
 
             textView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-            if (!isInEditMode() && mTextTypeFace!=null) {
+            if (!isInEditMode() && mTextTypeFace!=null && !mUseSystemFont) {
                 textView.setTypeface(mTextTypeFace);
             }
             return textView;
@@ -283,7 +284,7 @@ public class FancyButton  extends LinearLayout{
         mDefaultTextSize				= (int) attrsArray.getDimension(R.styleable.FancyButtonsAttrs_fb_textSize, mDefaultTextSize);
         mDefaultTextGravity             = attrsArray.getInt(R.styleable.FancyButtonsAttrs_fb_textGravity, mDefaultTextGravity);
 
-        mBorderColor 					= attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_borderColor,mBorderColor);
+        mBorderColor 					= attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_borderColor, mBorderColor);
         mBorderWidth					= (int) attrsArray.getDimension(R.styleable.FancyButtonsAttrs_fb_borderWidth,mBorderWidth);
 
         mRadius 						= (int)attrsArray.getDimension(R.styleable.FancyButtonsAttrs_fb_radius,mRadius);
@@ -296,7 +297,8 @@ public class FancyButton  extends LinearLayout{
 
         mTextAllCaps                    = attrsArray.getBoolean(R.styleable.FancyButtonsAttrs_fb_textAllCaps, false);
 
-        mGhost = attrsArray.getBoolean(R.styleable.FancyButtonsAttrs_fb_ghost, mGhost);
+        mGhost                          = attrsArray.getBoolean(R.styleable.FancyButtonsAttrs_fb_ghost, mGhost);
+        mUseSystemFont                  = attrsArray.getBoolean(R.styleable.FancyButtonsAttrs_fb_useSystemFont, mUseSystemFont);
 
         String text 					= attrsArray.getString(R.styleable.FancyButtonsAttrs_fb_text);
         mIconPosition 					= attrsArray.getInt(R.styleable.FancyButtonsAttrs_fb_iconPosition,mIconPosition);
@@ -683,6 +685,15 @@ public class FancyButton  extends LinearLayout{
             this.setupBackground();
         }
 
+    }
+
+    /**
+     * Setting the button use system font
+     *
+     * @param use
+     */
+    public void setUsingSystemFont(boolean use) {
+        this.mUseSystemFont = use;
     }
 
     /**
