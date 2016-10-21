@@ -30,6 +30,7 @@ public class FancyButton  extends LinearLayout{
     // # Background Attributes
     private int mDefaultBackgroundColor 		= Color.BLACK;
     private int mFocusBackgroundColor 			= 0;
+    private int mDisabledBackgroundColor        = 0; //TODO need to implement with ripple effect
 
     // # Text Attributes
     private int mDefaultTextColor 				= Color.WHITE;
@@ -77,6 +78,7 @@ public class FancyButton  extends LinearLayout{
     private TextView mTextView;
 
     private boolean mGhost = false ; // Default is a solid button !
+    private boolean useRippleEffect = true;
 
     /**
      * Default constructor
@@ -103,7 +105,7 @@ public class FancyButton  extends LinearLayout{
         this.mContext = context;
 
         TypedArray attrsArray 	= context.obtainStyledAttributes(attrs,R.styleable.FancyButtonsAttrs, 0, 0);
-        initAttributesArray(attrsArray);
+        initAttributesArray(attrs, attrsArray);
         attrsArray.recycle();
 
         initializeFancyButton();
@@ -270,12 +272,16 @@ public class FancyButton  extends LinearLayout{
 
     /**
      * Initialize Attributes arrays
+     * @param attrs
      * @param attrsArray : Attributes array
      */
-    private void initAttributesArray(TypedArray attrsArray){
+    private void initAttributesArray(AttributeSet attrs, TypedArray attrsArray){
 
         mDefaultBackgroundColor 		= attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_defaultColor,mDefaultBackgroundColor);
         mFocusBackgroundColor 			= attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_focusColor,mFocusBackgroundColor);
+        mDisabledBackgroundColor        = attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_disabledColor, mDisabledBackgroundColor);
+
+        this.setEnabled(attrs.getAttributeBooleanValue("http://schemas.android.com/apk/res/android", "enabled", true));
 
         mDefaultTextColor 				= attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_textColor,mDefaultTextColor);
         // if default color is set then the icon's color is the same (the default for icon's color)
@@ -365,7 +371,7 @@ public class FancyButton  extends LinearLayout{
         }
 
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && useRippleEffect) {
 
             this.setBackground(getRippleDrawable(defaultDrawable, focusDrawable));
 
@@ -392,9 +398,15 @@ public class FancyButton  extends LinearLayout{
                 }
             }
 
+            // Disabled Drawable
+            GradientDrawable disabledDrawable = new GradientDrawable();
+            disabledDrawable.setCornerRadius(mRadius);
+            disabledDrawable.setColor(mDisabledBackgroundColor);
+
             if(mFocusBackgroundColor != 0){
                 states.addState(new int[] { android.R.attr.state_pressed }, drawable2);
                 states.addState(new int[] { android.R.attr.state_focused }, drawable2);
+                states.addState(new int[]{ -android.R.attr.state_enabled }, disabledDrawable);
             }
             states.addState(new int[]{}, defaultDrawable);
 
@@ -495,6 +507,18 @@ public class FancyButton  extends LinearLayout{
     public void setFocusBackgroundColor(int color){
         this.mFocusBackgroundColor = color;
         if(mIconView != null || mFontIconView != null || mTextView != null)
+            this.setupBackground();
+
+    }
+
+    /**
+     * Set Disabled state color of the button
+     *
+     * @param color : use Color.parse('#code')
+     */
+    public void setDisableBackgroundColor(int color) {
+        this.mDisabledBackgroundColor = color;
+        if (mIconView != null || mFontIconView != null || mTextView != null)
             this.setupBackground();
 
     }

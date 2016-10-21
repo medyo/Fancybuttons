@@ -21,9 +21,13 @@ public class Utils {
 		return Math.round(sp * context.getResources().getDisplayMetrics().scaledDensity);
 	}
 
-	public static Typeface findFont(Context context, String fonPath, String defaultFontPath){
+	public static Typeface findFont(Context context, String fontPath, String defaultFontPath){
 
-		String fontName = new File(fonPath).getName();
+		if (fontPath == null){
+			return Typeface.DEFAULT;
+		}
+
+		String fontName = new File(fontPath).getName();
 		String defaultFontName = "";
 		if (!TextUtils.isEmpty(defaultFontPath)){
 			defaultFontName = new File(defaultFontPath).getName();
@@ -35,7 +39,7 @@ public class Utils {
 			try{
 				AssetManager assets = context.getResources().getAssets();
 
-				if (Arrays.asList(assets.list("")).contains(fonPath)){
+				if (Arrays.asList(assets.list("")).contains(fontPath)){
 					Typeface typeface = Typeface.createFromAsset(context.getAssets(), fontName);
 					cachedFontMap.put(fontName, typeface);
 					return typeface;

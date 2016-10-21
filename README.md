@@ -30,6 +30,9 @@
 
 ### Changelog
 
+- 1.8.2
+    - Added ability to set disabled state color
+
 - 1.8.1
     - Fix Bug related to loading custom fonts
 
@@ -62,9 +65,9 @@
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"/>
 
-####  Supported Attributs
+####  Supported Attributes
 
-| XML Attribut        | Java Attribut           | Description  |
+| XML Attribute        | Java Attribute           | Description  |
 | ------------- |:-------------:| -----:|
 | fancy:fb_text      | setText(String)     | Text of the button |
 | fancy:fb_textColor     | setTextColor(int)      |  Text Color of the button |
@@ -80,12 +83,23 @@
 | fancy:fb_borderColor | setBorderColor(int)      |    Color of the border|
 | fancy:fb_defaultColor | setBackgroundColor(int)      |    Background color of the button|
 | fancy:fb_focusColor | setFocusBackgroundColor(int)      |    Focus Color of border background|
+| fancy:fb_disabledColor | setDisableBackgroundColor(int)      |    Disable Color of border background|
 | fancy:fb_radius | setRadius(int)      |    Radius of the button|
 | fancy:fb_iconPaddingLeft | setIconPadding(int,int,int,int)      |    Icon Padding|
 | fancy:fb_iconPaddingRight | setIconPadding(int,int,int,int)      |    Icon Padding|
 | fancy:fb_iconPaddingTop | setIconPadding(int,int,int,int)      |    Icon Padding|
 | fancy:fb_iconPaddingBottom | setIconPadding(int,int,int,int)      |    Icon Padding|
 | fancy:fb_ghost | setGhost(boolean)      |    Ghost (Hollow)|
+
+Also you can use Attributes with default prefix (android:) which makes migrating of your project more fast.
+Default Attributes have more priority than Attributes with prefix fancy.
+
+#### Supported default Attributes
+| XML Attribute    |
+| ------------- |
+| android:enabled |
+| android:text (in progress) |
+| android:textSize (in progress) |
 
 ####  Supported Getters
 
