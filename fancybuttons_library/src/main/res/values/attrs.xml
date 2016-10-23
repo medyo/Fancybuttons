@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="FancyButtonsAttrs">
-        <attr name="fb_defaultColor" format="color"  />
-        <attr name="fb_text" format="string"  />
+        <attr name="fb_defaultColor" format="color" />
+        <attr name="fb_text" format="string" />
 
-        <attr name="fb_textColor" format="color"  />
-        <attr name="fb_iconColor" format="color"  />
+        <attr name="fb_textColor" format="color" />
+        <attr name="fb_iconColor" format="color" />
 
-        <attr name="fb_textFont" format="string"  />
-        <attr name="fb_iconFont" format="string"  />
+        <attr name="fb_textFont" format="string" />
+        <attr name="fb_iconFont" format="string" />
 
-        <attr name="fb_textSize" format="dimension"  />
-        <attr name="fb_iconResource" format="integer"  />
-        <attr name="fb_fontIconResource" format="string"  />
-        <attr name="fb_fontIconSize" format="dimension"  />
+        <attr name="fb_textSize" format="dimension" />
+        <attr name="fb_iconResource" format="integer" />
+        <attr name="fb_fontIconResource" format="string" />
+        <attr name="fb_fontIconSize" format="dimension" />
         <attr name="fb_iconPosition" format="enum">
             <enum name="left" value="1" />
             <enum name="right" value="2" />
@@ -51,12 +51,13 @@
         <attr name="fb_iconPaddingBottom" format="dimension" />
 
         <attr name="fb_borderColor" format="color" />
-        <attr name="fb_borderWidth" format="dimension"/>
+        <attr name="fb_borderWidth" format="dimension" />
         <attr name="fb_focusColor" format="color" />
         <attr name="fb_radius" format="dimension" />
         <attr name="fb_textAllCaps" format="boolean" />
 
-        <attr name="fb_ghost" format="boolean"></attr>
+        <attr name="fb_ghost" format="boolean"/>
+        <attr name="fb_useSystemFont" format="boolean"/>
     </declare-styleable>
 
 </resources> 
