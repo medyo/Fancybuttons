@@ -53,6 +53,9 @@
         <attr name="fb_borderColor" format="color" />
         <attr name="fb_borderWidth" format="dimension" />
         <attr name="fb_focusColor" format="color" />
+        <attr name="fb_disabledColor" format="color" />
+        <attr name="fb_disabledTextColor" format="color" />
+        <attr name="fb_disabledBorderColor" format="color" />
         <attr name="fb_radius" format="dimension" />
         <attr name="fb_textAllCaps" format="boolean" />
 

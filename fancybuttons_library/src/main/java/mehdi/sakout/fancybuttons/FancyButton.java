@@ -30,6 +30,9 @@ public class FancyButton  extends LinearLayout{
     // # Background Attributes
     private int mDefaultBackgroundColor 		= Color.BLACK;
     private int mFocusBackgroundColor 			= 0;
+    private int mDisabledBackgroundColor        = Color.parseColor("#f6f7f9");
+    private int mDisabledTextColor              = Color.parseColor("#bec2c9");
+    private int mDisabledBorderColor            = Color.parseColor("#dddfe2");
 
     // # Text Attributes
     private int mDefaultTextColor 				= Color.WHITE;
@@ -78,6 +81,7 @@ public class FancyButton  extends LinearLayout{
 
     private boolean mGhost = false ; // Default is a solid button !
     private boolean mUseSystemFont = false; // Default is using robotoregular.ttf
+    private boolean useRippleEffect = true;
 
     /**
      * Default constructor
@@ -104,7 +108,7 @@ public class FancyButton  extends LinearLayout{
         this.mContext = context;
 
         TypedArray attrsArray 	= context.obtainStyledAttributes(attrs,R.styleable.FancyButtonsAttrs, 0, 0);
-        initAttributesArray(attrsArray);
+        initAttributesArray(attrs, attrsArray);
         attrsArray.recycle();
 
         initializeFancyButton();
@@ -182,7 +186,7 @@ public class FancyButton  extends LinearLayout{
             TextView textView = new TextView(mContext);
             textView.setText(mText);
             textView.setGravity(mDefaultTextGravity);
-            textView.setTextColor(mDefaultTextColor);
+            textView.setTextColor(isEnabled() ? mDefaultTextColor : mDisabledTextColor);
             textView.setTextSize(Utils.pxToSp(getContext(), mDefaultTextSize));
 
             textView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
@@ -202,7 +206,7 @@ public class FancyButton  extends LinearLayout{
 
         if(mFontIcon!=null){
             TextView fontIconView = new TextView(mContext);
-            fontIconView.setTextColor(mDefaultIconColor);
+            fontIconView.setTextColor(isEnabled() ? mDefaultIconColor : mDisabledTextColor);
 
             LayoutParams iconTextViewParams = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
             iconTextViewParams.rightMargin = mIconPaddingRight;
@@ -271,13 +275,19 @@ public class FancyButton  extends LinearLayout{
 
     /**
      * Initialize Attributes arrays
+     * @param attrs
      * @param attrsArray : Attributes array
      */
-    private void initAttributesArray(TypedArray attrsArray){
+    private void initAttributesArray(AttributeSet attrs, TypedArray attrsArray){
 
         mDefaultBackgroundColor 		= attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_defaultColor,mDefaultBackgroundColor);
         mFocusBackgroundColor 			= attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_focusColor,mFocusBackgroundColor);
+        mDisabledBackgroundColor        = attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_disabledColor, mDisabledBackgroundColor);
 
+        this.setEnabled(attrs.getAttributeBooleanValue("http://schemas.android.com/apk/res/android", "enabled", true));
+
+        mDisabledTextColor              = attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_disabledTextColor, mDisabledTextColor);
+        mDisabledBorderColor            = attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_disabledBorderColor, mDisabledBorderColor);
         mDefaultTextColor 				= attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_textColor,mDefaultTextColor);
         // if default color is set then the icon's color is the same (the default for icon's color)
         mDefaultIconColor               = attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_iconColor,mDefaultTextColor);
@@ -338,8 +348,13 @@ public class FancyButton  extends LinearLayout{
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    private Drawable getRippleDrawable(Drawable defaultDrawable, Drawable focusDrawable){
-        return new RippleDrawable(ColorStateList.valueOf(mFocusBackgroundColor), defaultDrawable, focusDrawable);
+    private Drawable getRippleDrawable(Drawable defaultDrawable, Drawable focusDrawable, Drawable disabledDrawable){
+        if (!isEnabled()){
+            return disabledDrawable;
+        } else {
+            return new RippleDrawable(ColorStateList.valueOf(mFocusBackgroundColor), defaultDrawable, focusDrawable);
+        }
+
     }
 
 
@@ -361,15 +376,29 @@ public class FancyButton  extends LinearLayout{
         focusDrawable.setCornerRadius(mRadius);
         focusDrawable.setColor(mFocusBackgroundColor);
 
+        // Disabled Drawable
+        GradientDrawable disabledDrawable = new GradientDrawable();
+        disabledDrawable.setCornerRadius(mRadius);
+        disabledDrawable.setColor(mDisabledBackgroundColor);
+        disabledDrawable.setStroke(mBorderWidth, mDisabledBorderColor);
+
         // Handle Border
         if (mBorderColor != 0) {
             defaultDrawable.setStroke(mBorderWidth, mBorderColor);
         }
 
+        // Handle disabled border color
+        if (!isEnabled()){
+            defaultDrawable.setStroke(mBorderWidth, mDisabledBorderColor);
+            if (mGhost){
+                disabledDrawable.setColor(getResources().getColor(android.R.color.transparent));
+            }
+        }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
-            this.setBackground(getRippleDrawable(defaultDrawable, focusDrawable));
+        if (useRippleEffect && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            this.setBackground(getRippleDrawable(defaultDrawable, focusDrawable, disabledDrawable));
 
         } else {
 
@@ -394,11 +423,22 @@ public class FancyButton  extends LinearLayout{
                 }
             }
 
-            if(mFocusBackgroundColor != 0){
-                states.addState(new int[] { android.R.attr.state_pressed }, drawable2);
-                states.addState(new int[] { android.R.attr.state_focused }, drawable2);
+            if (!isEnabled()){
+                if (mGhost){
+                    drawable2.setStroke(mBorderWidth, mDisabledBorderColor);
+                } else {
+                    drawable2.setStroke(mBorderWidth, mDisabledBorderColor);
+                }
             }
+
+            if(mFocusBackgroundColor != 0){
+                states.addState(new int[] { android.R.attr.state_pressed}, drawable2);
+                states.addState(new int[] { android.R.attr.state_focused}, drawable2);
+                states.addState(new int[]{ -android.R.attr.state_enabled }, disabledDrawable);
+            }
+
             states.addState(new int[]{}, defaultDrawable);
+
 
             if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
                 this.setBackgroundDrawable(states);
@@ -497,6 +537,18 @@ public class FancyButton  extends LinearLayout{
     public void setFocusBackgroundColor(int color){
         this.mFocusBackgroundColor = color;
         if(mIconView != null || mFontIconView != null || mTextView != null)
+            this.setupBackground();
+
+    }
+
+    /**
+     * Set Disabled state color of the button
+     *
+     * @param color : use Color.parse('#code')
+     */
+    public void setDisableBackgroundColor(int color) {
+        this.mDisabledBackgroundColor = color;
+        if (mIconView != null || mFontIconView != null || mTextView != null)
             this.setupBackground();
 
     }
