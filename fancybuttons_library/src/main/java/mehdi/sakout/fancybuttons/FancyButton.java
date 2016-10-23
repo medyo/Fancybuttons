@@ -688,12 +688,12 @@ public class FancyButton  extends LinearLayout{
     }
 
     /**
-     * Setting the button use system font
+     * If enabled, the button title will ignore its custom font and use the default system font
      *
-     * @param use
+     * @param status : true || false
      */
-    public void setUsingSystemFont(boolean use) {
-        this.mUseSystemFont = use;
+    public void setUsingSystemFont(boolean status) {
+        this.mUseSystemFont = status;
     }
 
     /**

@@ -56,8 +56,8 @@
         <attr name="fb_radius" format="dimension" />
         <attr name="fb_textAllCaps" format="boolean" />
 
-        <attr name="fb_ghost" format="boolean"></attr>
-        <attr name="fb_useSystemFont" format="boolean"></attr>
+        <attr name="fb_ghost" format="boolean"/>
+        <attr name="fb_useSystemFont" format="boolean"/>
     </declare-styleable>
 
 </resources> 
