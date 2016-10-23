@@ -385,7 +385,7 @@
                 android:layout_height="wrap_content" >
 
                 <mehdi.sakout.fancybuttons.FancyButton
-                    android:id="@+id/btn_twitter"
+                    android:id="@+id/btn_send"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -403,7 +403,7 @@
                 </mehdi.sakout.fancybuttons.FancyButton>
 
                 <mehdi.sakout.fancybuttons.FancyButton
-                    android:id="@+id/btn_twitter_disabled"
+                    android:id="@+id/btn_send_disabled"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -413,11 +413,10 @@
                     fancy:fb_borderWidth="2dp"
                     fancy:fb_defaultColor="#40a75a"
                     fancy:fb_focusColor="#8cc9f8"
-                    fancy:fb_disabledColor="#c8b7b7b7"
                     fancy:fb_fontIconResource="@string/icon_user"
                     fancy:fb_fontIconSize="30sp"
                     fancy:fb_iconPosition="left"
-                    fancy:fb_text="Send disabled"
+                    fancy:fb_text="Send Disabled"
                     fancy:fb_radius="10dp"
                     fancy:fb_textColor="#FFFFFF">
                 </mehdi.sakout.fancybuttons.FancyButton>
@@ -537,6 +536,8 @@
                     fancy:fb_borderColor="#7ed862"
                     fancy:fb_text="Contact"
                     fancy:fb_textColor="#ffa8f192" />
+
+
             </LinearLayout>
 
         </LinearLayout>

@@ -554,6 +554,33 @@ public class FancyButton  extends LinearLayout{
     }
 
     /**
+     * Set Disabled state color of the button text
+     *
+     * @param color : use Color.parse('#code')
+     */
+    public void setDisableTextColor(int color) {
+        this.mDisabledTextColor = color;
+        if(mTextView == null)
+            initializeFancyButton();
+        else if (!isEnabled())
+            mTextView.setTextColor(color);
+
+    }
+
+    /**
+     * Set Disabled state color of the button border
+     *
+     * @param color : use Color.parse('#code')
+     */
+    public void setDisableBorderColor(int color) {
+        this.mDisabledBorderColor = color;
+        if(mIconView!=null || mFontIconView!=null || mTextView!=null){
+            this.setupBackground();
+        }
+
+    }
+
+    /**
      * Set the size of Text in sp
      * @param textSize : Text Size
      */
@@ -630,7 +657,7 @@ public class FancyButton  extends LinearLayout{
     public void setIconResource(String icon){
         this.mFontIcon = icon;
         if(mFontIconView == null) {
-            mIconView=null;
+            mIconView = null;
             initializeFancyButton();
         }
         else

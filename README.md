@@ -31,7 +31,8 @@
 ### Changelog
 
 - 1.8.2
-    - Added ability to set disabled state color
+    - Added ability to disable button
+    - Added ability to use system font
 
 - 1.8.1
     - Fix Bug related to loading custom fonts
@@ -50,7 +51,7 @@
 
 ### Installation
 
-	compile 'com.github.medyo:fancybuttons:1.8.1'
+	compile 'com.github.medyo:fancybuttons:1.8.2'
 
 ### Usage
 
@@ -82,14 +83,17 @@
 | fancy:fb_borderWidth | setBorderWidth(int)      |    Width of the border|
 | fancy:fb_borderColor | setBorderColor(int)      |    Color of the border|
 | fancy:fb_defaultColor | setBackgroundColor(int)      |    Background color of the button|
-| fancy:fb_focusColor | setFocusBackgroundColor(int)      |    Focus Color of border background|
-| fancy:fb_disabledColor | setDisableBackgroundColor(int)      |    Disable Color of border background|
+| fancy:fb_focusColor | setFocusBackgroundColor(int)      |    Focus Color of button background|
+| fancy:fb_disabledColor | setDisableBackgroundColor(int)      |    Disabled Color of button background|
+| fancy:fb_disabledTextColor | setDisableTextColor(int)      |    Disabled Color of button text|
+| fancy:fb_disabledBorderColor | setDisableBorderColor(int)      |    Disabled Color of button border|
 | fancy:fb_radius | setRadius(int)      |    Radius of the button|
 | fancy:fb_iconPaddingLeft | setIconPadding(int,int,int,int)      |    Icon Padding|
 | fancy:fb_iconPaddingRight | setIconPadding(int,int,int,int)      |    Icon Padding|
 | fancy:fb_iconPaddingTop | setIconPadding(int,int,int,int)      |    Icon Padding|
 | fancy:fb_iconPaddingBottom | setIconPadding(int,int,int,int)      |    Icon Padding|
 | fancy:fb_ghost | setGhost(boolean)      |    Ghost (Hollow)|
+| fancy:fb_useSystemFont | setUsingSystemFont(boolean) | If enabled, the button title will ignore its custom font and use the default system font |
 
 Also you can use Attributes with default prefix (android:) which makes migrating of your project more fast.
 Default Attributes have more priority than Attributes with prefix fancy.
