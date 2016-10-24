@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="FancyButtonsAttrs">
+
+        <!-- Default Android attrs -->
+        <attr name="android:enabled" />
+        <attr name="android:text" />
+        <attr name="android:textSize" />
+        <attr name="android:textAllCaps" />
+
         <attr name="fb_defaultColor" format="color" />
         <attr name="fb_text" format="string" />
 
@@ -59,8 +66,8 @@
         <attr name="fb_radius" format="dimension" />
         <attr name="fb_textAllCaps" format="boolean" />
 
-        <attr name="fb_ghost" format="boolean"/>
-        <attr name="fb_useSystemFont" format="boolean"/>
+        <attr name="fb_ghost" format="boolean" />
+        <attr name="fb_useSystemFont" format="boolean" />
     </declare-styleable>
 
 </resources> 

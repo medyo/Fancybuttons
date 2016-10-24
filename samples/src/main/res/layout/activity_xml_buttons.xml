@@ -422,6 +422,24 @@
                     fancy:fb_textColor="#FFFFFF">
                 </mehdi.sakout.fancybuttons.FancyButton>
 
+                <mehdi.sakout.fancybuttons.FancyButton
+                    android:id="@+id/btn_android_prefix"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:padding="10dp"
+                    fancy:fb_borderColor="#FFFFFF"
+                    fancy:fb_borderWidth="2dp"
+                    fancy:fb_defaultColor="#40a75a"
+                    fancy:fb_focusColor="#8cc9f8"
+                    fancy:fb_disabledColor="#e4e4e4"
+                    fancy:fb_radius="10dp"
+                    android:textSize="10sp"
+                    android:textAllCaps="true"
+                    android:text="@string/android_prefix"
+                    fancy:fb_textColor="#FFFFFF"
+                    />
+
             </LinearLayout>
 
             <LinearLayout

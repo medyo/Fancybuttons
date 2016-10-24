@@ -15,7 +15,6 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -108,7 +107,7 @@ public class FancyButton  extends LinearLayout{
         this.mContext = context;
 
         TypedArray attrsArray 	= context.obtainStyledAttributes(attrs,R.styleable.FancyButtonsAttrs, 0, 0);
-        initAttributesArray(attrs, attrsArray);
+        initAttributesArray(attrsArray);
         attrsArray.recycle();
 
         initializeFancyButton();
@@ -132,48 +131,41 @@ public class FancyButton  extends LinearLayout{
         int iconIndex,textIndex;
         View view1,view2;
 
-        if(mIconView == null && mFontIconView == null && mTextView == null){
-            Button tempTextView = new Button(mContext);
-            tempTextView.setText("Fancy Button");
-            this.addView(tempTextView);
+
+        this.removeAllViews();
+        setupBackground();
+
+        ArrayList<View> views = new ArrayList<>();
+
+        if(mIconPosition == POSITION_LEFT || mIconPosition == POSITION_TOP){
+
+            if(mIconView != null){
+                views.add(mIconView);
+            }
+
+            if(mFontIconView != null){
+                views.add(mFontIconView);
+            }
+            if(mTextView != null){
+                views.add(mTextView);
+            }
 
         }else{
-            this.removeAllViews();
-            setupBackground();
-
-            ArrayList<View> views = new ArrayList<>();
-
-            if(mIconPosition == POSITION_LEFT || mIconPosition == POSITION_TOP){
-
-                if(mIconView != null){
-                    views.add(mIconView);
-                }
-
-                if(mFontIconView != null){
-                    views.add(mFontIconView);
-                }
-                if(mTextView != null){
-                    views.add(mTextView);
-                }
-
-            }else{
-                if(mTextView != null){
-                    views.add(mTextView);
-                }
-
-                if(mIconView != null){
-                    views.add(mIconView);
-                }
-
-                if(mFontIconView != null){
-                    views.add(mFontIconView);
-                }
-
+            if(mTextView != null){
+                views.add(mTextView);
             }
 
-            for(View view : views){
-                this.addView(view);
+            if(mIconView != null){
+                views.add(mIconView);
             }
+
+            if(mFontIconView != null){
+                views.add(mFontIconView);
+            }
+        }
+
+        for(View view : views){
+            this.addView(view);
         }
     }
 
@@ -182,20 +174,21 @@ public class FancyButton  extends LinearLayout{
      * @return : TextView
      */
     private TextView setupTextView(){
-        if (mText != null) {
-            TextView textView = new TextView(mContext);
-            textView.setText(mText);
-            textView.setGravity(mDefaultTextGravity);
-            textView.setTextColor(isEnabled() ? mDefaultTextColor : mDisabledTextColor);
-            textView.setTextSize(Utils.pxToSp(getContext(), mDefaultTextSize));
-
-            textView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-            if (!isInEditMode() && mTextTypeFace!=null && !mUseSystemFont) {
-                textView.setTypeface(mTextTypeFace);
-            }
-            return textView;
+        if (mText == null) {
+            mText = "Fancy Button";
         }
-        return null;
+
+        TextView textView = new TextView(mContext);
+        textView.setText(mText);
+
+        textView.setGravity(mDefaultTextGravity);
+        textView.setTextColor(isEnabled() ? mDefaultTextColor : mDisabledTextColor);
+        textView.setTextSize(Utils.pxToSp(getContext(), mDefaultTextSize));
+        textView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+        if (!isInEditMode() && !mUseSystemFont) {
+            textView.setTypeface(mTextTypeFace); //we can pass null in first arg
+        }
+        return textView;
     }
 
     /**
@@ -275,23 +268,26 @@ public class FancyButton  extends LinearLayout{
 
     /**
      * Initialize Attributes arrays
-     * @param attrs
+     *
      * @param attrsArray : Attributes array
      */
-    private void initAttributesArray(AttributeSet attrs, TypedArray attrsArray){
+    private void initAttributesArray(TypedArray attrsArray){
 
         mDefaultBackgroundColor 		= attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_defaultColor,mDefaultBackgroundColor);
         mFocusBackgroundColor 			= attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_focusColor,mFocusBackgroundColor);
         mDisabledBackgroundColor        = attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_disabledColor, mDisabledBackgroundColor);
 
-        this.setEnabled(attrs.getAttributeBooleanValue("http://schemas.android.com/apk/res/android", "enabled", true));
+        this.setEnabled(attrsArray.getBoolean(R.styleable.FancyButtonsAttrs_android_enabled, true));
 
         mDisabledTextColor              = attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_disabledTextColor, mDisabledTextColor);
         mDisabledBorderColor            = attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_disabledBorderColor, mDisabledBorderColor);
         mDefaultTextColor 				= attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_textColor,mDefaultTextColor);
         // if default color is set then the icon's color is the same (the default for icon's color)
         mDefaultIconColor               = attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_iconColor,mDefaultTextColor);
-        mDefaultTextSize				= (int) attrsArray.getDimension(R.styleable.FancyButtonsAttrs_fb_textSize, mDefaultTextSize);
+
+        mDefaultTextSize                = (int) attrsArray.getDimension(R.styleable.FancyButtonsAttrs_fb_textSize, mDefaultTextSize);
+        mDefaultTextSize                = (int) attrsArray.getDimension(R.styleable.FancyButtonsAttrs_android_textSize, mDefaultTextSize);
+
         mDefaultTextGravity             = attrsArray.getInt(R.styleable.FancyButtonsAttrs_fb_textGravity, mDefaultTextGravity);
 
         mBorderColor 					= attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_borderColor, mBorderColor);
@@ -306,11 +302,16 @@ public class FancyButton  extends LinearLayout{
         mIconPaddingBottom              = (int)attrsArray.getDimension(R.styleable.FancyButtonsAttrs_fb_iconPaddingBottom,mIconPaddingBottom);
 
         mTextAllCaps                    = attrsArray.getBoolean(R.styleable.FancyButtonsAttrs_fb_textAllCaps, false);
+        mTextAllCaps                    = attrsArray.getBoolean(R.styleable.FancyButtonsAttrs_android_textAllCaps, false);
 
         mGhost                          = attrsArray.getBoolean(R.styleable.FancyButtonsAttrs_fb_ghost, mGhost);
         mUseSystemFont                  = attrsArray.getBoolean(R.styleable.FancyButtonsAttrs_fb_useSystemFont, mUseSystemFont);
 
-        String text 					= attrsArray.getString(R.styleable.FancyButtonsAttrs_fb_text);
+        String text = attrsArray.getString(R.styleable.FancyButtonsAttrs_fb_text);
+        if (text == null) { //no fb_text attribute
+            text = attrsArray.getString(R.styleable.FancyButtonsAttrs_android_text);
+        }
+
         mIconPosition 					= attrsArray.getInt(R.styleable.FancyButtonsAttrs_fb_iconPosition,mIconPosition);
 
         String fontIcon 				= attrsArray.getString(R.styleable.FancyButtonsAttrs_fb_fontIconResource);

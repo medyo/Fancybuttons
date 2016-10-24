@@ -41,4 +41,5 @@
     <string name="icon_creditcard">&#xf09d;</string>
     <string name="ghost_button_title">Ghost Button</string>
     <string name="icon_envelope"></string>
+    <string name="android_prefix">Android Prefix</string>
 </resources>

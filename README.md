@@ -1,5 +1,5 @@
 # FancyButtons
-[ ![jCenter](https://api.bintray.com/packages/medyo/maven/fancybuttons/images/download.svg) ](https://bintray.com/medyo/maven/fancybuttons/_latestVersion)  [![jitPack](https://jitpack.io/v/medyo/Fancybuttons.svg)](https://jitpack.io/#medyo/Fancybuttons)  
+[ ![jCenter](https://api.bintray.com/packages/medyo/maven/fancybuttons/images/download.svg) ](https://bintray.com/medyo/maven/fancybuttons/_latestVersion)  [![jitPack](https://jitpack.io/v/medyo/Fancybuttons.svg)](https://jitpack.io/#medyo/Fancybuttons)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-FancyButtons-lightgrey.svg?style=flat)](http://android-arsenal.com/details/1/681)
 
 
@@ -24,11 +24,18 @@
     * right
     * left
     * top
-    * bottom  
+    * bottom
 * Icon Size
 * Icon Padding
 
 ### Changelog
+
+- 1.8.3
+    - Fixed long searching of font
+    - Added ability to use android:text, android:textSize, android:testAllCaps attributes
+    - Fixed preview issues with android:* attrs
+    - Added opportunity to use android:* attrs in styles
+    - Minor optimization & refactoring
 
 - 1.8.2
     - Added ability to disable button
@@ -44,7 +51,7 @@
 - 1.7
     - Fix ripple effect when background is transparent
     - Add capitalization of text
-    
+
 - 1.6
     - Add ripple effect
     - Upgrade Font Awesome to 4.5.0
@@ -102,8 +109,9 @@ Default Attributes have more priority than Attributes with prefix fancy.
 | XML Attribute    |
 | ------------- |
 | android:enabled |
-| android:text (in progress) |
-| android:textSize (in progress) |
+| android:text |
+| android:textSize |
+| android:textAllCaps |
 
 ####  Supported Getters
 
@@ -116,9 +124,9 @@ Default Attributes have more priority than Attributes with prefix fancy.
 
 #### Sample
 
-**1 - Spotify Button**  
+**1 - Spotify Button**
 
-![FancyButton Spotify](https://raw.github.com/medyo/fancybuttons/master/resources/spotify-button.png)  
+![FancyButton Spotify](https://raw.github.com/medyo/fancybuttons/master/resources/spotify-button.png)
 
 	<mehdi.sakout.fancybuttons.FancyButton
 		android:id="@+id/btn_spotify"
@@ -140,7 +148,7 @@ Default Attributes have more priority than Attributes with prefix fancy.
 
 **2 - Facebook Button**
 
-![FancyButton Facebook](https://raw.github.com/medyo/fancybuttons/master/resources/facebook-button.png)  
+![FancyButton Facebook](https://raw.github.com/medyo/fancybuttons/master/resources/facebook-button.png)
 
 	FancyButton facebookLoginBtn = new FancyButton(this);
     facebookLoginBtn.setText("Login with Facebook");
@@ -156,7 +164,7 @@ See the [example project](https://github.com/medyo/fancybuttons/tree/master/samp
 
 ### Bonus
 
-Fancybuttons is delivered with :  
+Fancybuttons is delivered with :
 
 * 1 font : **RobotoRegular**
 * 1 icon Font : **FontAwesome** ( cheatsheet http://fortawesome.github.io/Font-Awesome/cheatsheet/)
@@ -165,7 +173,7 @@ Fancybuttons is delivered with :
 
 ### FAQ
 
-**How to add new fonts ?**  
+**How to add new fonts ?**
 Just Paste your font inside `assets/fonts/` folder for Text fonts or inside `assets/iconfonts/` for icon fonts eg : entypo
 
 ## Contributions
