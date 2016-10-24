@@ -60,6 +60,7 @@ public class Utils {
 				}
 
 			}catch (Exception e){
+				cachedFontMap.put(fontName, Typeface.DEFAULT);
 				return Typeface.DEFAULT;
 			}
 		}

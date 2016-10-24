@@ -413,6 +413,7 @@
                     fancy:fb_borderWidth="2dp"
                     fancy:fb_defaultColor="#40a75a"
                     fancy:fb_focusColor="#8cc9f8"
+                    fancy:fb_disabledColor="#e4e4e4"
                     fancy:fb_fontIconResource="@string/icon_user"
                     fancy:fb_fontIconSize="30sp"
                     fancy:fb_iconPosition="left"
