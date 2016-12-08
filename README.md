@@ -35,6 +35,7 @@
     - Added ability to use android:text, android:textSize, android:testAllCaps attributes
     - Fixed preview issues with android:* attrs
     - Added opportunity to use android:* attrs in styles
+    - Added ability to use custom LayoutParams instead of the default one
     - Minor optimization & refactoring
 
 - 1.8.2

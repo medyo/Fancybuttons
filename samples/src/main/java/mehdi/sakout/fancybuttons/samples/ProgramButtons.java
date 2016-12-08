@@ -1,6 +1,7 @@
 package mehdi.sakout.fancybuttons.samples;
 
 import android.graphics.Color;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -49,6 +50,7 @@ public class ProgramButtons extends AppCompatActivity {
         installBtn.setIconPadding(0,30,0,0);
 
         FancyButton signupBtn = new FancyButton(this);
+        signupBtn.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
         signupBtn.setText("Repost the song");
         signupBtn.setIconResource(R.drawable.soundcloud);
         signupBtn.setBackgroundColor(Color.parseColor("#ff8800"));
@@ -64,7 +66,7 @@ public class ProgramButtons extends AppCompatActivity {
         container.addView(facebookLoginBtn,layoutParams);
         container.addView(foursquareBtn,layoutParams);
         container.addView(installBtn,layoutParams);
-        container.addView(signupBtn,layoutParams);
+        container.addView(signupBtn);
 
     }
 

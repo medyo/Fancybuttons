@@ -80,7 +80,7 @@ public class FancyButton  extends LinearLayout{
 
     private boolean mGhost = false ; // Default is a solid button !
     private boolean mUseSystemFont = false; // Default is using robotoregular.ttf
-    private boolean useRippleEffect = true;
+    private boolean mUseRippleEffect = true;
 
     /**
      * Default constructor
@@ -308,6 +308,7 @@ public class FancyButton  extends LinearLayout{
         mUseSystemFont                  = attrsArray.getBoolean(R.styleable.FancyButtonsAttrs_fb_useSystemFont, mUseSystemFont);
 
         String text = attrsArray.getString(R.styleable.FancyButtonsAttrs_fb_text);
+
         if (text == null) { //no fb_text attribute
             text = attrsArray.getString(R.styleable.FancyButtonsAttrs_android_text);
         }
@@ -330,8 +331,8 @@ public class FancyButton  extends LinearLayout{
         if(fontIcon!=null)
             mFontIcon = fontIcon;
 
-        if(text!=null)
-            mText = mTextAllCaps ? text.toUpperCase():text;
+        if(text != null)
+            mText = mTextAllCaps ? text.toUpperCase() : text;
 
         if(!isInEditMode()){
             if(iconFontFamily!=null){
@@ -397,7 +398,7 @@ public class FancyButton  extends LinearLayout{
         }
 
 
-        if (useRippleEffect && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (mUseRippleEffect && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
             this.setBackground(getRippleDrawable(defaultDrawable, focusDrawable, disabledDrawable));
 
@@ -464,8 +465,12 @@ public class FancyButton  extends LinearLayout{
         }else{
             this.setOrientation(LinearLayout.HORIZONTAL);
         }
-        LayoutParams containerParams = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
-        this.setLayoutParams(containerParams);
+
+        if (this.getLayoutParams() == null){
+            LayoutParams containerParams = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+            this.setLayoutParams(containerParams);
+        }
+
         this.setGravity(Gravity.CENTER);
         this.setClickable(true);
         this.setFocusable(true);
