@@ -36,6 +36,7 @@
     - Fixed preview issues with android:* attrs
     - Added opportunity to use android:* attrs in styles
     - Added ability to use custom LayoutParams instead of the default one
+    - Force refreshing the view when `setEnabled(boolean)` is called
     - Minor optimization & refactoring
 
 - 1.8.2
@@ -59,7 +60,7 @@
 
 ### Installation
 
-	compile 'com.github.medyo:fancybuttons:1.8.2'
+	compile 'com.github.medyo:fancybuttons:1.8.3'
 
 ### Usage
 
