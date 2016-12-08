@@ -1,14 +1,11 @@
-# FancyButtons
+# Fancybuttons
+Icons, Borders, Radius ... for Android buttons
 [ ![jCenter](https://api.bintray.com/packages/medyo/maven/fancybuttons/images/download.svg) ](https://bintray.com/medyo/maven/fancybuttons/_latestVersion)  [![jitPack](https://jitpack.io/v/medyo/Fancybuttons.svg)](https://jitpack.io/#medyo/Fancybuttons)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-FancyButtons-lightgrey.svg?style=flat)](http://android-arsenal.com/details/1/681)
 
-
-
-![FancyButtons Android](/resources/fancy.png)![FancyButtons Android](/resources/fancy2.png)![FancyButtons Android](/resources/fancy3.png)
+<img src="/resources/cover.png" width="80%" alt="Android About Page Cover"/>
 
 ## Overview
-**FancyButtons**, helps you to easily create fancy buttons without the need of drawable files.
-
 ![FancyButtons Android](https://raw.github.com/medyo/fancybuttons/master/resources/no-drawables.png)
 
 ### Demo Application : [Download APK](https://raw.github.com/medyo/fancybuttons/master/resources/fancybuttons_samples.apk)
@@ -172,6 +169,8 @@ Fancybuttons is delivered with :
 * 1 icon Font : **FontAwesome** ( cheatsheet http://fortawesome.github.io/Font-Awesome/cheatsheet/)
 
 - - - -
+
+![FancyButtons Android](/resources/fancy.png)![FancyButtons Android](/resources/fancy2.png)![FancyButtons Android](/resources/fancy3.png)
 
 ### FAQ
 
