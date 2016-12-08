@@ -48,6 +48,7 @@ public class ProgramButtons extends AppCompatActivity {
         installBtn.setTextSize(17);
         installBtn.setRadius(5);
         installBtn.setIconPadding(0,30,0,0);
+        installBtn.setEnabled(false);
 
         FancyButton signupBtn = new FancyButton(this);
         signupBtn.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));

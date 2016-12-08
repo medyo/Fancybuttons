@@ -59,6 +59,7 @@ public class FancyButton  extends LinearLayout{
     private int mBorderWidth 					= 0;
 
     private int mRadius 						= 0;
+    private boolean mEnabled                    = true;
 
     private boolean mTextAllCaps                = false;
 
@@ -184,7 +185,7 @@ public class FancyButton  extends LinearLayout{
         textView.setText(mText);
 
         textView.setGravity(mDefaultTextGravity);
-        textView.setTextColor(isEnabled() ? mDefaultTextColor : mDisabledTextColor);
+        textView.setTextColor(mEnabled ? mDefaultTextColor : mDisabledTextColor);
         textView.setTextSize(Utils.pxToSp(getContext(), mDefaultTextSize));
         textView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
         if (!isInEditMode() && !mUseSystemFont) {
@@ -201,7 +202,7 @@ public class FancyButton  extends LinearLayout{
 
         if(mFontIcon!=null){
             TextView fontIconView = new TextView(mContext);
-            fontIconView.setTextColor(isEnabled() ? mDefaultIconColor : mDisabledTextColor);
+            fontIconView.setTextColor(mEnabled ? mDefaultIconColor : mDisabledTextColor);
 
             LayoutParams iconTextViewParams = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
             iconTextViewParams.rightMargin = mIconPaddingRight;
@@ -279,7 +280,7 @@ public class FancyButton  extends LinearLayout{
         mFocusBackgroundColor 			= attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_focusColor,mFocusBackgroundColor);
         mDisabledBackgroundColor        = attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_disabledColor, mDisabledBackgroundColor);
 
-        this.setEnabled(attrsArray.getBoolean(R.styleable.FancyButtonsAttrs_android_enabled, true));
+        mEnabled                        = attrsArray.getBoolean(R.styleable.FancyButtonsAttrs_android_enabled, true);
 
         mDisabledTextColor              = attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_disabledTextColor, mDisabledTextColor);
         mDisabledBorderColor            = attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_disabledBorderColor, mDisabledBorderColor);
@@ -353,7 +354,7 @@ public class FancyButton  extends LinearLayout{
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private Drawable getRippleDrawable(Drawable defaultDrawable, Drawable focusDrawable, Drawable disabledDrawable){
-        if (!isEnabled()){
+        if (!mEnabled){
             return disabledDrawable;
         } else {
             return new RippleDrawable(ColorStateList.valueOf(mFocusBackgroundColor), defaultDrawable, focusDrawable);
@@ -392,7 +393,7 @@ public class FancyButton  extends LinearLayout{
         }
 
         // Handle disabled border color
-        if (!isEnabled()){
+        if (!mEnabled){
             defaultDrawable.setStroke(mBorderWidth, mDisabledBorderColor);
             if (mGhost){
                 disabledDrawable.setColor(getResources().getColor(android.R.color.transparent));
@@ -427,7 +428,7 @@ public class FancyButton  extends LinearLayout{
                 }
             }
 
-            if (!isEnabled()){
+            if (!mEnabled){
                 if (mGhost){
                     drawable2.setStroke(mBorderWidth, mDisabledBorderColor);
                 } else {
@@ -570,7 +571,7 @@ public class FancyButton  extends LinearLayout{
         this.mDisabledTextColor = color;
         if(mTextView == null)
             initializeFancyButton();
-        else if (!isEnabled())
+        else if (!mEnabled)
             mTextView.setTextColor(color);
 
     }
@@ -758,6 +759,19 @@ public class FancyButton  extends LinearLayout{
             initializeFancyButton();
         else
             mFontIconView.setTypeface(mIconTypeFace);
+
+    }
+
+    /**
+     * Override setEnabled and rebuild the fancybutton view
+     * To redraw the button according to the state : enabled or disabled
+     * @param value
+     */
+    @Override
+    public void setEnabled(boolean value){
+        super.setEnabled(value);
+        this.mEnabled = value;
+        initializeFancyButton();
 
     }
 
