@@ -25,6 +25,8 @@ import java.util.ArrayList;
 @SuppressWarnings("unused")
 public class FancyButton  extends LinearLayout{
 
+    public static final String TAG = FancyButton.class.getSimpleName();
+
     private Context mContext;
 
     // # Background Attributes
