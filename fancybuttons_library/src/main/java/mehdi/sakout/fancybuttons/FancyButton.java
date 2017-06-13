@@ -607,7 +607,7 @@ public class FancyButton  extends LinearLayout{
     public void setTextGravity(int gravity) {
         this.mDefaultTextGravity = gravity;
         if (mTextView != null) {
-            mTextView.setGravity(gravity);
+            this.setGravity(gravity);
         }
     }
 
