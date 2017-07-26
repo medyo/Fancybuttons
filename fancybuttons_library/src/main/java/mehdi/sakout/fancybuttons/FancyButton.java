@@ -375,15 +375,26 @@ public class FancyButton  extends LinearLayout{
 
     }
 
+    /**
+     * This method applies radius to the drawable corners
+     * Specify radius for each corner if radius attribute is not defined
+     * @param drawable Drawable
+     */
+    private void applyRadius(GradientDrawable drawable){
+        if (mRadius > 0){
+            drawable.setCornerRadius(mRadius);
+        } else {
+            drawable.setCornerRadii(new float[]{mRadiusTopLeft, mRadiusTopLeft, mRadiusTopRight, mRadiusTopRight,
+                    mRadiusBottomRight, mRadiusBottomRight, mRadiusBottomLeft, mRadiusBottomLeft});
+        }
+    }
 
     @SuppressLint("NewApi")
     private void setupBackground(){
         // Default Drawable
         GradientDrawable defaultDrawable = new GradientDrawable();
-        defaultDrawable.setCornerRadius(mRadius);
+        applyRadius(defaultDrawable);
 
-        defaultDrawable.setCornerRadii(new float[]{mRadiusTopLeft, mRadiusTopLeft, mRadiusTopRight, mRadiusTopRight,
-                mRadiusBottomRight, mRadiusBottomRight, mRadiusBottomLeft, mRadiusBottomLeft});
         
         if (mGhost){
             defaultDrawable.setColor(getResources().getColor(android.R.color.transparent)); // Hollow Background
@@ -393,19 +404,13 @@ public class FancyButton  extends LinearLayout{
 
         //Focus Drawable
         GradientDrawable focusDrawable = new GradientDrawable();
-        focusDrawable.setCornerRadius(mRadius);
-        
-        focusDrawable.setCornerRadii(new float[]{mRadiusTopLeft, mRadiusTopLeft, mRadiusTopRight, mRadiusTopRight,
-                mRadiusBottomRight, mRadiusBottomRight, mRadiusBottomLeft, mRadiusBottomLeft});
+        applyRadius(focusDrawable);
         
         focusDrawable.setColor(mFocusBackgroundColor);
 
         // Disabled Drawable
         GradientDrawable disabledDrawable = new GradientDrawable();
-        disabledDrawable.setCornerRadius(mRadius);
-        
-        focusDrawable.setCornerRadii(new float[]{mRadiusTopLeft, mRadiusTopLeft, mRadiusTopRight, mRadiusTopRight,
-                mRadiusBottomRight, mRadiusBottomRight, mRadiusBottomLeft, mRadiusBottomLeft});
+        applyRadius(disabledDrawable);
         
         disabledDrawable.setColor(mDisabledBackgroundColor);
         disabledDrawable.setStroke(mBorderWidth, mDisabledBorderColor);
@@ -434,10 +439,7 @@ public class FancyButton  extends LinearLayout{
 
             // Focus/Pressed Drawable
             GradientDrawable drawable2 = new GradientDrawable();
-            drawable2.setCornerRadius(mRadius);
-            
-            focusDrawable.setCornerRadii(new float[]{mRadiusTopLeft, mRadiusTopLeft, mRadiusTopRight, mRadiusTopRight,
-                    mRadiusBottomRight, mRadiusBottomRight, mRadiusBottomLeft, mRadiusBottomLeft});
+            applyRadius(drawable2);
             
             if (mGhost){
                 drawable2.setColor(getResources().getColor(android.R.color.transparent)); // No focus color
