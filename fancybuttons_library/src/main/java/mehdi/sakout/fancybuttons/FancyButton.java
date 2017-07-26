@@ -13,6 +13,8 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
+import android.text.Html;
+import android.text.SpannableString;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
