@@ -761,6 +761,22 @@ public class FancyButton  extends LinearLayout{
     }
 
     /**
+     * Set Border Radius for each button corner
+     * Top Left, Top Right, Bottom Left, Bottom Right
+     * @param radius : Array of int
+     */
+    public void setRadius(int[] radius){
+        this.mRadiusTopLeft     = radius[0];
+        this.mRadiusTopRight    = radius[1];
+        this.mRadiusBottomLeft  = radius[2];
+        this.mRadiusBottomRight = radius[3];
+
+        if(mIconView != null || mFontIconView != null || mTextView != null){
+            this.setupBackground();
+        }
+    }
+
+    /**
      * Set custom font for button Text
      * @param fontName : Font Name
      * Place your text fonts in assets
