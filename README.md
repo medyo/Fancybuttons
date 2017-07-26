@@ -14,18 +14,16 @@ Icons, Borders, Radius ... for Android buttons
 
 * Border (stroke, radius, color)
 * Background (normal, focus)
-* Icon (Drawable, font icon)
-	* FontAwesome
-	* Custom font
+* Icon (Drawable, font Icon)
 * Icon (Position, size)
-    * right
-    * left
-    * top
-    * bottom
 * Icon Size
 * Icon Padding
 
 ### Changelog
+
+- 1.8.4
+    - Fix Text Gravity
+    - Add Ability to define custom radius value for each corner
 
 - 1.8.3
     - Fixed long searching of font
@@ -57,7 +55,7 @@ Icons, Borders, Radius ... for Android buttons
 
 ### Installation
 
-	compile 'com.github.medyo:fancybuttons:1.8.3'
+	compile 'com.github.medyo:fancybuttons:1.8.4'
 
 ### Usage
 
@@ -82,7 +80,7 @@ Icons, Borders, Radius ... for Android buttons
 | fancy:fb_textFont | setCustomTextFont(String)      |    FontFamily of the text|
 | fancy:fb_textGravity | setTextGravity(Int)      |    Gravity of the text|
 | fancy:fb_iconResource | setIconResource(Drawable)      |    Drawable icon of the button|
-| fancy:fb_iconPosition | setsetIconPosition(int)      |    Position of the icon : Left, Right, Top, Bottom|
+| fancy:fb_iconPosition | setIconPosition(int)      |    Position of the icon : Left, Right, Top, Bottom|
 | fancy:fb_fontIconResource | setIconResource(String)      |    font icon of the button|
 | fancy:fb_fontIconSize | setFontIconSize(int)      |    Size of the icon |
 | fancy:fb_iconFont | setCustomIconFont(String)      |    FontFamily of the icon|
@@ -94,6 +92,7 @@ Icons, Borders, Radius ... for Android buttons
 | fancy:fb_disabledTextColor | setDisableTextColor(int)      |    Disabled Color of button text|
 | fancy:fb_disabledBorderColor | setDisableBorderColor(int)      |    Disabled Color of button border|
 | fancy:fb_radius | setRadius(int)      |    Radius of the button|
+| fancy:fb_radius(TopLeft, TopRight,BottomLeft,BottomRight) | setRadius(int[] radius)      |    Custom Radius for each button corner|
 | fancy:fb_iconPaddingLeft | setIconPadding(int,int,int,int)      |    Icon Padding|
 | fancy:fb_iconPaddingRight | setIconPadding(int,int,int,int)      |    Icon Padding|
 | fancy:fb_iconPaddingTop | setIconPadding(int,int,int,int)      |    Icon Padding|
@@ -112,8 +111,7 @@ Default Attributes have more priority than Attributes with prefix fancy.
 | android:textSize |
 | android:textAllCaps |
 
-####  Supported Getters
-
+#### Supported Getters
 | Function        | Description  |
 | ------------- |:-------------:| -----:|
 | getText() | Returns Text Value of the button|
