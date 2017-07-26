@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.graphics.Outline;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
@@ -15,6 +16,7 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewOutlineProvider;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -830,6 +832,39 @@ public class FancyButton  extends LinearLayout{
      */
     public ImageView getIconImageObject(){
         return mIconView;
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private class CustomOutline extends ViewOutlineProvider {
+
+        int width;
+        int height;
+
+        CustomOutline(int width, int height) {
+            this.width = width;
+            this.height = height;
+        }
+
+        @Override
+        public void getOutline(View view, Outline outline) {
+
+            if (mRadius==0){
+                outline.setRect(0,10,width,height);
+            }
+            else {
+                outline.setRoundRect(0, 10, width, height, mRadius);
+            }
+
+        }
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            setOutlineProvider(new CustomOutline(w, h));
+        }
     }
 
 }
