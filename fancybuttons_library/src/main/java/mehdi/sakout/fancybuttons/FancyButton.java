@@ -481,11 +481,7 @@ public class FancyButton  extends LinearLayout{
             } else {
                 this.setBackground(states);
             }
-
         }
-
-
-
     }
 
 
@@ -509,7 +505,8 @@ public class FancyButton  extends LinearLayout{
         this.setClickable(true);
         this.setFocusable(true);
         if(mIconResource==null && mFontIcon==null && getPaddingLeft()==0 && getPaddingRight()==0 && getPaddingTop()==0 && getPaddingBottom()==0){
-            this.setPadding(20, 20, 20, 20);
+            //fix for all version of androids and screens 
+            this.setPadding(20, 0, 20, 0);
         }
     }
 
