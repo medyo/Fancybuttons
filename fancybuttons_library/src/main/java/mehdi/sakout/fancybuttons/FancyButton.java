@@ -507,15 +507,16 @@ public class FancyButton extends LinearLayout {
         }
 
         this.setGravity(Gravity.CENTER);
-        this.setClickable(true);
-        this.setFocusable(true);
-        if (mIconResource == null && mFontIcon == null && getPaddingLeft() == 0 && getPaddingRight() == 0 && getPaddingTop() == 0 && getPaddingBottom() == 0) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                this.setPadding(0, 0, 0, 0);
-            } else {
-                this.setPadding(20, 20, 20, 20);
-            }
-        }
+        
+        // disable click listeners for fix bug in this issue as: 
+        // https://github.com/medyo/Fancybuttons/issues/100 
+        //this.setClickable(true);
+        //this.setFocusable(true);
+        
+         if(mIconResource==null && mFontIcon==null && getPaddingLeft()==0 && getPaddingRight()==0 && getPaddingTop()==0 && getPaddingBottom()==0){
+            //fix for all version of androids and screens 
+            this.setPadding(20, 0, 20, 0);
+         }
     }
 
     /**
