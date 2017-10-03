@@ -483,10 +483,7 @@ public class FancyButton extends LinearLayout {
             } else {
                 this.setBackground(states);
             }
-
         }
-
-
     }
 
 
@@ -507,7 +504,6 @@ public class FancyButton extends LinearLayout {
         }
 
         this.setGravity(Gravity.CENTER);
-        
         // disable click listeners for fix bug in this issue as: 
         // https://github.com/medyo/Fancybuttons/issues/100 
         //this.setClickable(true);
@@ -516,7 +512,7 @@ public class FancyButton extends LinearLayout {
          if(mIconResource==null && mFontIcon==null && getPaddingLeft()==0 && getPaddingRight()==0 && getPaddingTop()==0 && getPaddingBottom()==0){
             //fix for all version of androids and screens 
             this.setPadding(20, 0, 20, 0);
-         }
+         }   
     }
 
     /**
