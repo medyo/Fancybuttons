@@ -7,6 +7,7 @@
         <attr name="android:text" />
         <attr name="android:textSize" />
         <attr name="android:textAllCaps" />
+        <attr name="android:textStyle" />
 
         <attr name="fb_defaultColor" format="color" />
         <attr name="fb_text" format="string" />
@@ -61,7 +62,7 @@
         <attr name="fb_radiusTopRight" format="dimension"/>
         <attr name="fb_radiusBottomLeft" format="dimension"/>
         <attr name="fb_radiusBottomRight" format="dimension"/>
-        
+
         <attr name="fb_borderColor" format="color" />
         <attr name="fb_borderWidth" format="dimension" />
         <attr name="fb_focusColor" format="color" />
