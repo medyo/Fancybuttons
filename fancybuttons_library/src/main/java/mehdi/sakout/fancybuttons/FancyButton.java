@@ -72,6 +72,7 @@ public class FancyButton extends LinearLayout {
 
     private Typeface mTextTypeFace = null;
     private Typeface mIconTypeFace = null;
+    private int textStyle;
 
     /**
      * Tags to identify icon position
@@ -199,7 +200,7 @@ public class FancyButton extends LinearLayout {
         textView.setTextSize(Utils.pxToSp(getContext(), mDefaultTextSize));
         textView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
         if (!isInEditMode() && !mUseSystemFont) {
-            textView.setTypeface(mTextTypeFace); //we can pass null in first arg
+            textView.setTypeface(mTextTypeFace, textStyle); //we can pass null in first arg
         }
         return textView;
     }
@@ -334,6 +335,8 @@ public class FancyButton extends LinearLayout {
         }
 
         mIconPosition = attrsArray.getInt(R.styleable.FancyButtonsAttrs_fb_iconPosition, mIconPosition);
+
+        textStyle = attrsArray.getInt(R.styleable.FancyButtonsAttrs_android_textStyle, Typeface.NORMAL);
 
         String fontIcon = attrsArray.getString(R.styleable.FancyButtonsAttrs_fb_fontIconResource);
 
@@ -502,11 +505,11 @@ public class FancyButton extends LinearLayout {
         // https://github.com/medyo/Fancybuttons/issues/100 
         //this.setClickable(true);
         //this.setFocusable(true);
-        
+
          if(mIconResource==null && mFontIcon==null && getPaddingLeft()==0 && getPaddingRight()==0 && getPaddingTop()==0 && getPaddingBottom()==0){
             //fix for all version of androids and screens 
             this.setPadding(20, 0, 20, 0);
-         }   
+         }
     }
 
     /**
@@ -801,8 +804,7 @@ public class FancyButton extends LinearLayout {
         if (mTextView == null)
             initializeFancyButton();
         else
-            mTextView.setTypeface(mTextTypeFace);
-
+            mTextView.setTypeface(mTextTypeFace, textStyle);
     }
 
     /**
