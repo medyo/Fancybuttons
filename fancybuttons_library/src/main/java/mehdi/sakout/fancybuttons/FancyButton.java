@@ -340,10 +340,8 @@ public class FancyButton extends LinearLayout {
         String iconFontFamily = attrsArray.getString(R.styleable.FancyButtonsAttrs_fb_iconFont);
         String textFontFamily = attrsArray.getString(R.styleable.FancyButtonsAttrs_fb_textFont);
 
-        Drawable icon = null;
         try {
             mIconResource = attrsArray.getDrawable(R.styleable.FancyButtonsAttrs_fb_iconResource);
-
         } catch (Exception e) {
             mIconResource = null;
         }
@@ -355,17 +353,13 @@ public class FancyButton extends LinearLayout {
             mText = mTextAllCaps ? text.toUpperCase() : text;
 
         if (!isInEditMode()) {
-            if (iconFontFamily != null) {
-                mIconTypeFace = Utils.findFont(mContext, iconFontFamily, mDefaultIconFont);
-            } else {
-                mIconTypeFace = Utils.findFont(mContext, mDefaultIconFont, null);
-            }
+            mIconTypeFace = iconFontFamily != null
+                    ? Utils.findFont(mContext, iconFontFamily, mDefaultIconFont)
+                    : Utils.findFont(mContext, mDefaultIconFont, null);
 
-            if (textFontFamily != null) {
-                mTextTypeFace = Utils.findFont(mContext, textFontFamily, mDefaultTextFont);
-            } else {
-                mTextTypeFace = Utils.findFont(mContext, mDefaultTextFont, null);
-            }
+            mTextTypeFace = textFontFamily != null
+                    ? Utils.findFont(mContext, textFontFamily, mDefaultTextFont)
+                    : Utils.findFont(mContext, mDefaultTextFont, null);
         }
     }
 
