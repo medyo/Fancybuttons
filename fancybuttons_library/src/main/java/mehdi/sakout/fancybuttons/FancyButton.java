@@ -201,7 +201,7 @@ public class FancyButton extends LinearLayout {
         textView.setTextColor(mEnabled ? mDefaultTextColor : mDisabledTextColor);
         textView.setTextSize(Utils.pxToSp(getContext(), mDefaultTextSize));
         textView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-        if (!mUseSystemFont) {
+        if (!isInEditMode() && !mUseSystemFont) {
             textView.setTypeface(mTextTypeFace, textStyle); //we can pass null in first arg
         }
         return textView;
