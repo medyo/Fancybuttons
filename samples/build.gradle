@@ -19,8 +19,8 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:22.2.1'
-    compile project(':fancybuttons_library')
+    implementation "com.android.support:appcompat-v7:$support_lib_version"
+    implementation project(':fancybuttons_library')
     
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }

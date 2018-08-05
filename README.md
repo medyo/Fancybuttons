@@ -21,6 +21,14 @@ Icons, Borders, Radius ... for Android buttons
 
 ### Changelog
 
+- 1.9.0
+    - Add support for font resources (For text font only)
+    - Increase min API level to 14
+    - Now you can use these to set text font (res/font/roboto_slab_bold.ttf):
+        android:fontFamily="@font/roboto_slab_bold"
+        fancy:fb_textFontRes="@font/roboto_slab_bold"
+    - Add dependency on support library used only when using font resources.
+
 - 1.8.4
     - Fix Text Gravity
     - Add Ability to define custom radius value for each corner
@@ -55,7 +63,11 @@ Icons, Borders, Radius ... for Android buttons
 
 ### Installation
 
-	compile 'com.github.medyo:fancybuttons:1.8.4'
+	implementation 'com.github.medyo:fancybuttons:1.9.0'
+
+### To use font resources add support library to your dependencies:
+
+	implementation "com.android.support:appcompat-v7:$support_lib_version"
 
 ### Usage
 
@@ -78,6 +90,7 @@ Icons, Borders, Radius ... for Android buttons
 | fancy:fb_textColor     | setTextColor(int)      |  Text Color of the button |
 | fancy:fb_textSize | setTextSize(int)      |    Size of the text |
 | fancy:fb_textFont | setCustomTextFont(String)      |    FontFamily of the text|
+| fancy:fb_textFontRes | setCustomTextFont(int)      |    FontFamily of the text using font resource. REQUIRES support library|
 | fancy:fb_textGravity | setTextGravity(Int)      |    Gravity of the text|
 | fancy:fb_iconResource | setIconResource(Drawable)      |    Drawable icon of the button|
 | fancy:fb_iconPosition | setIconPosition(int)      |    Position of the icon : Left, Right, Top, Bottom|
@@ -110,6 +123,7 @@ Default Attributes have more priority than Attributes with prefix fancy.
 | android:text |
 | android:textSize |
 | android:textAllCaps |
+| android:fontFamily |
 
 #### Supported Getters
 | Function        | Description  |
@@ -174,6 +188,7 @@ Fancybuttons is delivered with :
 
 **How to add new fonts ?**
 Just Paste your font inside `assets/fonts/` folder for Text fonts or inside `assets/iconfonts/` for icon fonts eg : entypo
+OR for text fonts add it to res/font/ and use android:fontFamily or fancy:fb_textFontRes to use it.
 
 ## Contributions
 Fancybuttons needs you to build the missing features :

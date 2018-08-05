@@ -20,7 +20,9 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:support-annotations:$support_lib_version"
+    api "com.android.support:appcompat-v7:$support_lib_version"
 }
 
 archivesBaseName = 'fancybuttons'

@@ -1,8 +1,6 @@
 package mehdi.sakout.fancybuttons.samples;
 
 import android.graphics.Color;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -47,7 +45,8 @@ public class ProgramButtons extends AppCompatActivity {
         installBtn.setFocusBackgroundColor(Color.parseColor("#bfe156"));
         installBtn.setTextSize(17);
         installBtn.setRadius(5);
-        installBtn.setIconPadding(0,30,0,0);
+        installBtn.setCustomTextFont(R.font.roboto_slab_bold);
+        installBtn.setIconPadding(0, 30, 0, 0);
         installBtn.setEnabled(false);
 
         FancyButton signupBtn = new FancyButton(this);
@@ -58,15 +57,15 @@ public class ProgramButtons extends AppCompatActivity {
         signupBtn.setFocusBackgroundColor(Color.parseColor("#ffa43c"));
         signupBtn.setTextSize(20);
         signupBtn.setCustomTextFont("robotothin.ttf");
-        signupBtn.setIconPadding(10,0,10,0);
+        signupBtn.setIconPadding(10, 0, 10, 0);
 
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.setMargins(0,0,0,10);
+        layoutParams.setMargins(0, 0, 0, 10);
 
-        LinearLayout container = (LinearLayout)findViewById(R.id.container);
-        container.addView(facebookLoginBtn,layoutParams);
-        container.addView(foursquareBtn,layoutParams);
-        container.addView(installBtn,layoutParams);
+        LinearLayout container = (LinearLayout) findViewById(R.id.container);
+        container.addView(facebookLoginBtn, layoutParams);
+        container.addView(foursquareBtn, layoutParams);
+        container.addView(installBtn, layoutParams);
         container.addView(signupBtn);
 
     }

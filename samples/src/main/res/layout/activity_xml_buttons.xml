@@ -1,6 +1,7 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -586,6 +587,57 @@
                     fancy:fb_textColor="#ffa8f192"/>
 
 
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <mehdi.sakout.fancybuttons.FancyButton
+                    android:id="@+id/btn_custom_font_resource"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"
+                    android:padding="15dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:fontFamily="@font/roboto_slab_bold"
+                    fancy:fb_borderColor="#ffe7e6e2"
+                    fancy:fb_borderWidth="2dp"
+                    fancy:fb_focusColor="#fffffefa"
+                    fancy:fb_fontIconResource="@string/icon_creditcard"
+                    fancy:fb_fontIconSize="15sp"
+                    fancy:fb_ghost="true"
+                    fancy:fb_iconPosition="right"
+                    fancy:fb_radius="40dp"
+                    fancy:fb_text="Deposit"
+                    fancy:fb_textColor="#ffffff"
+                    tools:targetApi="jelly_bean" />
+                <mehdi.sakout.fancybuttons.FancyButton
+                    android:id="@+id/btn_custom_font_resource_custom_attr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"
+                    android:padding="15dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    fancy:fb_textFontRes="@font/roboto_slab_bold"
+                    fancy:fb_borderColor="#ffe7e6e2"
+                    fancy:fb_borderWidth="2dp"
+                    fancy:fb_focusColor="#fffffefa"
+                    fancy:fb_fontIconResource="@string/icon_creditcard"
+                    fancy:fb_fontIconSize="15sp"
+                    fancy:fb_ghost="true"
+                    fancy:fb_iconPosition="right"
+                    fancy:fb_radius="40dp"
+                    fancy:fb_text="Deposit"
+                    fancy:fb_textColor="#ffffff"
+                    tools:targetApi="jelly_bean" />
             </LinearLayout>
 
         </LinearLayout>
