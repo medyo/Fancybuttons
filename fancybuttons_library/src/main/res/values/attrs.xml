@@ -8,6 +8,7 @@
         <attr name="android:textSize" />
         <attr name="android:textAllCaps" />
         <attr name="android:textStyle" />
+        <attr name="android:fontFamily" />
 
         <attr name="fb_defaultColor" format="color" />
         <attr name="fb_text" format="string" />
@@ -16,6 +17,7 @@
         <attr name="fb_iconColor" format="color" />
 
         <attr name="fb_textFont" format="string" />
+        <attr name="fb_textFontRes" format="reference" />
         <attr name="fb_iconFont" format="string" />
 
         <attr name="fb_textSize" format="dimension" />

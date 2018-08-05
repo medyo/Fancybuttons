@@ -2,19 +2,12 @@ package mehdi.sakout.fancybuttons.samples;
 
 import android.app.ListActivity;
 import android.content.Intent;
-import android.graphics.Color;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
-
-import mehdi.sakout.fancybuttons.FancyButton;
 
 public class MainActivity extends ListActivity implements AdapterView.OnItemClickListener {
 
@@ -34,7 +27,7 @@ public class MainActivity extends ListActivity implements AdapterView.OnItemClic
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
@@ -54,17 +47,18 @@ public class MainActivity extends ListActivity implements AdapterView.OnItemClic
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-        switch(position){
-            case 0 :
-                Intent intentXML = new Intent(MainActivity.this,XmlButtons.class);
+        switch (position) {
+            case 0:
+                Intent intentXML = new Intent(MainActivity.this, XmlButtons.class);
                 startActivity(intentXML);
 
                 break;
-            case 1 :
-                Intent intentProg = new Intent(MainActivity.this,ProgramButtons.class);
+            case 1:
+                Intent intentProg = new Intent(MainActivity.this, ProgramButtons.class);
                 startActivity(intentProg);
                 break;
-            default: throw new IllegalArgumentException("Hold up, hold my phone :)");
+            default:
+                throw new IllegalArgumentException("Hold up, hold my phone :)");
         }
     }
 }

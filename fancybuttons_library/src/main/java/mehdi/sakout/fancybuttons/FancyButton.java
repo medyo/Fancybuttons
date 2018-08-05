@@ -13,6 +13,8 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
+import android.support.annotation.FontRes;
+import android.support.v4.content.res.ResourcesCompat;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -199,7 +201,7 @@ public class FancyButton extends LinearLayout {
         textView.setTextColor(mEnabled ? mDefaultTextColor : mDisabledTextColor);
         textView.setTextSize(Utils.pxToSp(getContext(), mDefaultTextSize));
         textView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-        if (!isInEditMode() && !mUseSystemFont) {
+        if (!mUseSystemFont) {
             textView.setTypeface(mTextTypeFace, textStyle); //we can pass null in first arg
         }
         return textView;
@@ -360,10 +362,29 @@ public class FancyButton extends LinearLayout {
                     ? Utils.findFont(mContext, iconFontFamily, mDefaultIconFont)
                     : Utils.findFont(mContext, mDefaultIconFont, null);
 
-            mTextTypeFace = textFontFamily != null
-                    ? Utils.findFont(mContext, textFontFamily, mDefaultTextFont)
-                    : Utils.findFont(mContext, mDefaultTextFont, null);
+            Typeface fontResource = getTypeface(attrsArray);
+            if (fontResource != null) {
+                mTextTypeFace = fontResource;
+            } else {
+                mTextTypeFace = textFontFamily != null
+                        ? Utils.findFont(mContext, textFontFamily, mDefaultTextFont)
+                        : Utils.findFont(mContext, mDefaultTextFont, null);
+            }
         }
+    }
+
+    private Typeface getTypeface(TypedArray ta) {
+        if (ta.hasValue(R.styleable.FancyButtonsAttrs_android_fontFamily)) {
+            int fontId = ta.getResourceId(R.styleable.FancyButtonsAttrs_android_fontFamily, 0);
+            if (fontId != 0)
+                return ResourcesCompat.getFont(getContext(), fontId);
+        }
+        if(ta.hasValue(R.styleable.FancyButtonsAttrs_fb_textFontRes)){
+            int fontId = ta.getResourceId(R.styleable.FancyButtonsAttrs_fb_textFontRes, 0);
+            if (fontId != 0)
+                return ResourcesCompat.getFont(getContext(), fontId);
+        }
+        return null;
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -800,6 +821,22 @@ public class FancyButton extends LinearLayout {
      */
     public void setCustomTextFont(String fontName) {
         mTextTypeFace = Utils.findFont(mContext, fontName, mDefaultTextFont);
+
+        if (mTextView == null)
+            initializeFancyButton();
+        else
+            mTextView.setTypeface(mTextTypeFace, textStyle);
+    }
+
+    /**
+     * Set custom font for button Text
+     *
+     * @param fontId : Font id
+     *                 Place your text fonts in font resources.
+     *                 Eg. res/font/roboto.ttf or res/font/roboto.xml
+     */
+    public void setCustomTextFont(@FontRes int fontId) {
+        mTextTypeFace = ResourcesCompat.getFont(getContext(), fontId);
 
         if (mTextView == null)
             initializeFancyButton();
