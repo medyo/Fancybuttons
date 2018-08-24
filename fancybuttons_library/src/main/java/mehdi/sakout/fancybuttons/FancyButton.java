@@ -294,8 +294,11 @@ public class FancyButton extends LinearLayout {
         mFocusBackgroundColor = attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_focusColor, mFocusBackgroundColor);
         mDisabledBackgroundColor = attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_disabledColor, mDisabledBackgroundColor);
 
-        mEnabled = attrsArray.getBoolean(R.styleable.FancyButtonsAttrs_android_enabled, true);
-
+        // fix bug when set android:enabled="false" in xml file is not work, isEnabled() always return true when version is 1.9.0 or before
+        // this happens because this FancyButton extends of LinearLayout, which enabled attribute is not declared
+        mEnabled = attrsArray.getBoolean(R.styleable.FancyButtonsAttrs_android_enabled, isEnabled());
+        super.setEnabled(mEnabled);
+		
         mDisabledTextColor = attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_disabledTextColor, mDisabledTextColor);
         mDisabledBorderColor = attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_disabledBorderColor, mDisabledBorderColor);
         mDefaultTextColor = attrsArray.getColor(R.styleable.FancyButtonsAttrs_fb_textColor, mDefaultTextColor);
