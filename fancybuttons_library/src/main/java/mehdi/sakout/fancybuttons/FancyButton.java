@@ -379,13 +379,22 @@ public class FancyButton extends LinearLayout {
     private Typeface getTypeface(TypedArray ta) {
         if (ta.hasValue(R.styleable.FancyButtonsAttrs_android_fontFamily)) {
             int fontId = ta.getResourceId(R.styleable.FancyButtonsAttrs_android_fontFamily, 0);
-            if (fontId != 0)
-                return ResourcesCompat.getFont(getContext(), fontId);
+            if (fontId != 0) {
+                try {
+                    return ResourcesCompat.getFont(getContext(), fontId);
+                } catch (Resources.NotFoundException exception) {
+                    Log.d("getTypeface", exception.getMessage());
+                }
+            }
         }
-        if(ta.hasValue(R.styleable.FancyButtonsAttrs_fb_textFontRes)){
+        if (ta.hasValue(R.styleable.FancyButtonsAttrs_fb_textFontRes)) {
             int fontId = ta.getResourceId(R.styleable.FancyButtonsAttrs_fb_textFontRes, 0);
             if (fontId != 0)
-                return ResourcesCompat.getFont(getContext(), fontId);
+                try {
+                    return ResourcesCompat.getFont(getContext(), fontId);
+                } catch (Resources.NotFoundException exception) {
+                    Log.d("getTypeface", exception.getMessage());
+                }
         }
         return null;
     }
