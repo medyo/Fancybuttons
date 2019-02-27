@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.Outline;
@@ -16,6 +17,7 @@ import android.os.Build;
 import android.support.annotation.FontRes;
 import android.support.v4.content.res.ResourcesCompat;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewOutlineProvider;
@@ -382,8 +384,8 @@ public class FancyButton extends LinearLayout {
             if (fontId != 0) {
                 try {
                     return ResourcesCompat.getFont(getContext(), fontId);
-                } catch (Resources.NotFoundException exception) {
-                    Log.d("getTypeface", exception.getMessage());
+                } catch (Exception exception) {
+                    Log.e("getTypeface", exception.getMessage());
                 }
             }
         }
@@ -392,8 +394,8 @@ public class FancyButton extends LinearLayout {
             if (fontId != 0)
                 try {
                     return ResourcesCompat.getFont(getContext(), fontId);
-                } catch (Resources.NotFoundException exception) {
-                    Log.d("getTypeface", exception.getMessage());
+                } catch (Exception exception) {
+                    Log.e("getTypeface", exception.getMessage());
                 }
         }
         return null;

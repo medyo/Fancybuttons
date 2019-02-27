@@ -21,6 +21,9 @@ Icons, Borders, Radius ... for Android buttons
 
 ### Changelog
 
+- 1.9.1
+    - Fix getting the font
+
 - 1.9.0
     - Add support for font resources (For text font only)
     - Increase min API level to 14
