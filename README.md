@@ -66,7 +66,7 @@ Icons, Borders, Radius ... for Android buttons
 
 ### Installation
 
-	implementation 'com.github.medyo:fancybuttons:1.9.0'
+	implementation 'com.github.medyo:fancybuttons:1.9.1'
 
 ### To use font resources add support library to your dependencies:
 
