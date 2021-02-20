@@ -1,3 +1,8 @@
+:warning: This library was made years ago when it wasn't that easy to customize Android buttons like today.
+I highly recommend you to use [Material Design button](https://material.io/components/buttons/android) as it offers the same features 
+and most importantly it's backed by the Android Team.
+____
+
 # Fancybuttons
 Icons, Borders, Radius ... for Android buttons
 [ ![jCenter](https://api.bintray.com/packages/medyo/maven/fancybuttons/images/download.svg) ](https://bintray.com/medyo/maven/fancybuttons/_latestVersion)  [![jitPack](https://jitpack.io/v/medyo/Fancybuttons.svg)](https://jitpack.io/#medyo/Fancybuttons)
